@@ -1,0 +1,36 @@
+name: Build and test
+
+on: [push]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - name: Prepare
+        run: |
+          cd src
+          npm install --silent
+          npm run build
+          npm run test
+          cd dist
+          npm link
+          cd ..
+          cd ..
+          npm install -g @angular/cli@next
+          npm link angular-cli-ghpages
+          ng add angular-cli-ghpages
+      - name: Deploy
+        if: github.ref == 'refs/heads/master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ng deploy --no-silent --base-href=https://marinaionel.github.io/movies-web-client/ --repo=https://github.com/marinaionel/movies-web-client.git --name="marinaionel" --email=marinicaionel@gmail.com
