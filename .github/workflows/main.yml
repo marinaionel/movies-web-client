@@ -30,7 +30,4 @@ jobs:
           npm run build:ci
 
       - name: Deploy to GitHub pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+        run: ng deploy --base-href=https://marinaionel.github.io/movies-web-client/
