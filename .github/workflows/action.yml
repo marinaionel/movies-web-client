@@ -1,4 +1,4 @@
-name: Build and Deply to GithubPages
+name: Build
 on: push
 
 jobs:
@@ -28,9 +28,3 @@ jobs:
         run: |
           npm i
           npm run build:ci
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          exclude_assets: ''
