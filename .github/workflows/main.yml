@@ -29,12 +29,9 @@ jobs:
           npm ci
           npm run build:ci
 
-      - name: GitHub Pages
+      - name: Deploy to GitHub Pages
         if: success()
-        uses: crazy-max/ghaction-github-pages@v2.4.1
+        uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
-          repo: marinaionel/movies-web-client
-          allow_empty_commit: false
-          build_dir: .
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: .
