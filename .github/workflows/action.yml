@@ -29,10 +29,19 @@ jobs:
           npm i
           npm run build:ci
 
-      - name: Deploy to GitHub pages
-        uses: actions/checkout@v1
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
-          run_lint: true
-          base_href: movies-web-client
-          deploy_branch: gh-pages
-          angular_dist_build_folder: dist/movies-web-client
+          branch: gh-pages
+          folder: dist
