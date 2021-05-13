@@ -30,8 +30,11 @@ jobs:
           npm run build:ci
 
       - name: GitHub Pages
+        if: success()
         uses: crazy-max/ghaction-github-pages@v2.4.1
         with:
           repo: marinaionel/movies-web-client
           allow_empty_commit: false
           build_dir: .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
