@@ -11,8 +11,7 @@
     "test:watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:ci": "npm run clean && npm run test && npm run build:prod",
-    "deploy": "ng deploy --base-href=https://marinaionel.github.io/movies-web-client/"
+    "build:ci": "npm run clean && npm run test && npm run build:prod"
   },
   "private": true,
   "dependencies": {
