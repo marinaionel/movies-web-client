@@ -26,12 +26,13 @@ jobs:
 
       - name: npm install and npm run build
         run: |
-          npm ci
+          npm i
           npm run build:ci
 
       - name: Deploy to GitHub Pages
         if: success()
         uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
+          repository: marinaionel/movies-web-client
           branch: gh-pages
           folder: .
