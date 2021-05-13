@@ -28,6 +28,11 @@ jobs:
         run: |
           npm i
           npm run build:ci
+          
+      - name: Install Angular CLI
+        run: |
+          npm install -g @angular/cli
 
       - name: Deploy to GitHub pages
-        run: ng deploy --base-href=https://marinaionel.github.io/movies-web-client/
+        run: |
+          ng deploy --base-href=https://marinaionel.github.io/movies-web-client/
