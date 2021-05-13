@@ -28,3 +28,9 @@ jobs:
         run: |
           npm i
           npm run build:ci
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}   # Recommended for this usage
+          exclude_assets: ''
