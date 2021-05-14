@@ -29,6 +29,6 @@ export class LayoutComponent implements OnInit {
   }
 
   private showError(): void {
-
+    window.alert('Movies are not available.');
   }
 }

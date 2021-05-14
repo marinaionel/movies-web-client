@@ -1,8 +1,8 @@
 import {Injectable, isDevMode} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {Movie} from '../dto/Movie';
-import {catchError, map} from 'rxjs/operators';
+import {catchError} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,8 @@ export class MoviesProviderService {
   public movies$(): Observable<Movie[]> {
     return this.client.get<Movie[]>(this.getUrl()).pipe(
       catchError(error => {
-        throw error;
+        console.log(error);
+        return of([]);
       })
     );
   }
