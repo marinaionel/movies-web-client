@@ -28,3 +28,8 @@ jobs:
         run: |
           npm i
           npm run build:ci
+
+      - name: Deploy to github pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run deploy
