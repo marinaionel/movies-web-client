@@ -12,7 +12,6 @@ export class MoviesProviderService {
   private mockedMoviesFile = './config/movies-mock.json';
 
   constructor(private client: HttpClient) {
-
   }
 
   public movies$(): Observable<Movie[]> {
@@ -27,5 +26,4 @@ export class MoviesProviderService {
   private getUrl(): string {
     return isDevMode() ? this.mockedMoviesFile : this.moviesEndpoint;
   }
-
 }

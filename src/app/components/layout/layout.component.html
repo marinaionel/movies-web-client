@@ -1,8 +1,11 @@
-<p>Main layout</p>
-<ul>
-  <li *ngFor="let movie of movies">
-    <span>{{movie.title}}</span>
-    <br>
-    <span>{{movie.genre}}</span>
-  </li>
-</ul>
+<section class="container">
+  <section class="section">
+    <section class="section" *ngFor="let chart of charts">
+      <section class="message-header">{{chart.title}}</section>
+      <div class="carousel-wrapper">
+        <app-chart-carousel [slides]="chart.slides" [animationType]="animationType">
+        </app-chart-carousel>
+      </div>
+    </section>
+  </section>
+</section>

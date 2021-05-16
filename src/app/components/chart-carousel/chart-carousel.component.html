@@ -1,0 +1,35 @@
+<ng-container *ngFor="let slide of slides; let currentIndex = index">
+  <div
+    *ngIf="currentIndex === getCurrentSlide()"
+    class="slide"
+    [@slideAnimation]="animationType">
+
+    <!-- Navigation buttons -->
+    <button class="control prev" (click)="onPreviousClick()">
+      <span class="arrow left"></span>
+    </button>
+
+    <button class="control next" (click)="onNextClick()">
+      <span class="arrow right"></span>
+    </button>
+
+    <!-- Middle grid -->
+    <div class="centered-grid">
+      <div class="row columns is-multiline">
+        <div *ngFor="let movie of slide.movies" class="column is-3">
+          <div id="hoverCard" class="card">
+            <div class="card-image">
+              <figure class="image is-16by9">
+                <img [src]="movie.poster">
+              </figure>
+            </div>
+            <div class="overlay">
+              {{movie.title}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
