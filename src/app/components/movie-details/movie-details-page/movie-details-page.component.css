@@ -1,6 +1,7 @@
 iframe {
   width: 70%;
   height: 100%;
+  border-radius: 3rem;
 }
 
 .block-iframe {
