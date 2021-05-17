@@ -1,13 +1,13 @@
-import {Injectable, isDevMode} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
-import {Movie} from '../dto/Movie';
-import {catchError} from 'rxjs/operators';
+import { Injectable, isDevMode } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { Movie } from '../dto/Movie';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MoviesProviderService {
+export class MoviesProviderService{
   private moviesEndpoint = '/test';
   private mockedMoviesFile = './config/movies-mock.json';
 
@@ -21,6 +21,10 @@ export class MoviesProviderService {
         return of([]);
       })
     );
+  }
+
+  public getMovie$(title: string | null): Observable<Movie | undefined> {
+    return title ? this.movies$().pipe(map((movies: Movie[]) => movies.find(movie => movie.title === title))) : of(undefined);
   }
 
   private getUrl(): string {

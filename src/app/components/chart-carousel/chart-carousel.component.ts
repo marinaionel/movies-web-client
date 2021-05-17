@@ -1,9 +1,10 @@
-import {Component, Input} from '@angular/core';
-import {transition, trigger, useAnimation} from '@angular/animations';
-import {AnimationType, scaleIn, scaleOut} from './carousel.animations';
-import {Protocol} from 'puppeteer';
+import { Component, Input } from '@angular/core';
+import { transition, trigger, useAnimation } from '@angular/animations';
+import { AnimationType, scaleIn, scaleOut } from './animations/carousel.animations';
+import { Protocol } from 'puppeteer';
 import integer = Protocol.integer;
-import {ChartSlide} from '../../dto/ChartSlide';
+import { ChartSlide } from '../../dto/ChartSlide';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chart-carousel',
@@ -12,22 +13,22 @@ import {ChartSlide} from '../../dto/ChartSlide';
   animations: [
     trigger('slideAnimation', [
       transition('void => scale', [
-        useAnimation(scaleIn, {params: {time: '500ms'}})
+        useAnimation(scaleIn, { params: { time: '500ms' } })
       ]),
       transition('scale => void', [
-        useAnimation(scaleOut, {params: {time: '500ms'}})
+        useAnimation(scaleOut, { params: { time: '500ms' } })
       ]),
     ])
   ]
 })
 
-export class ChartCarouselComponent {
+export class ChartCarouselComponent{
   @Input() public slides: ChartSlide[] = [];
   @Input() public animationType = AnimationType.Scale;
 
   private currentSlide = 0;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   public getCurrentSlide(): integer {
@@ -43,6 +44,12 @@ export class ChartCarouselComponent {
     const next = this.currentSlide + 1;
     this.currentSlide = next === this.slides.length ? 0 : next;
   }
+
+  navigateTo(movieTitle: string): void {
+    console.log(movieTitle);
+    this.router.navigate(['/details', movieTitle]);
+  }
+
 }
 
 

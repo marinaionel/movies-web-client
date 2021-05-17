@@ -1,6 +1,6 @@
 import { AppComponent } from './app.component';
-import {TestBed} from '@angular/core/testing';
-import {RouterTestingModule} from '@angular/router/testing';
+import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
 
@@ -21,7 +21,6 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  /*
   it(`should have as title 'movies-web-client'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
@@ -34,5 +33,4 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('movies-web-client app is running!');
   });
-  */
 });

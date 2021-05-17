@@ -1,2 +1,2 @@
-export abstract class Constants {
+export abstract class Constants{
 }

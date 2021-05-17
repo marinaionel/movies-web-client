@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from '../services/user';
+import { User } from './user';
 import firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
 import {
@@ -7,10 +7,11 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class AuthService{
   userData: any;
 
   constructor(
@@ -30,7 +31,7 @@ export class AuthService {
   }
 
   // Sign in with email/password
-  SignIn(email: string, password: string) {
+  public SignIn(email: string, password: string): Promise<any> {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
@@ -45,7 +46,7 @@ export class AuthService {
   }
 
   // Sign up with email/password
-  SignUp(email: string, password: string) {
+  public SignUp(email: string, password: string): Promise<any> {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
@@ -57,24 +58,28 @@ export class AuthService {
       });
   }
 
-  AuthLogin(provider: firebase.auth.AuthProvider) {
+  public AuthLogin(provider: firebase.auth.AuthProvider): Promise<any> {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
         this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
         });
-        if (result.user != undefined) this.SetUserData(result.user);
+        if (result.user !== undefined) {
+          this.SetUserData(result.user);
+        }
       })
       .catch((error: Error) => {
         window.alert(error);
       });
   }
 
-  SetUserData(user: firebase.User | null) {
-    if (user == null) return;
+  public SetUserData(user: firebase.User | null): Promise<any> | null {
+    if (user == null) {
+      return null;
+    }
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.uid}`
+      `users/${ user.uid }`
     );
     const userData: User = {
       uid: user.uid,
@@ -88,19 +93,19 @@ export class AuthService {
     });
   }
 
-  async SignOut() {
+  public async SignOut(): Promise<any> {
     await this.afAuth.signOut();
     localStorage.removeItem('user');
     this.router.navigate(['sign-in']);
   }
 
-  async SendVerificationMail() {
+  public async SendVerificationMail(): Promise<any> {
     return (await this.afAuth.currentUser)?.sendEmailVerification().then(() => {
       this.router.navigate(['verify-email-address']);
     });
   }
 
-  ForgotPassword(passwordResetEmail: string) {
+  public ForgotPassword(passwordResetEmail: string): Promise<any> {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
@@ -111,16 +116,16 @@ export class AuthService {
       });
   }
 
-  get isLoggedIn(): boolean {
+  public get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user') || '');
-    return user !== null && user.emailVerified !== false ? true : false;
+    return user !== null && user.emailVerified !== false;
   }
 
-  GoogleAuth() {
+  public GoogleAuth(): Promise<any> {
     return this.AuthLogin(new firebase.auth.GoogleAuthProvider());
   }
 
-  async token(): Promise<string> {
+  public async token(): Promise<string> {
     return (await firebase.auth().currentUser?.getIdToken()) || '';
   }
 }

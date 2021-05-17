@@ -1,0 +1,13 @@
+<section class="container" *ngIf="movie$ | async as movie">
+  <div class="title has-text-centered">{{movie.title}}</div>
+
+  <div class="block-iframe">
+    <iframe class="has-text-centered"
+            src="https://www.youtube.com/embed/-964sSBviK0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"></iframe>
+  </div>
+  <div class="block-tabs">
+    <app-movie-details-tabs class="tabs"></app-movie-details-tabs>
+  </div>
+</section>
+

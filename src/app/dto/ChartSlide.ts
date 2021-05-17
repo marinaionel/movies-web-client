@@ -1,5 +1,5 @@
-import {Movie} from './Movie';
+import { Movie } from './Movie';
 
-export interface ChartSlide {
+export interface ChartSlide{
   movies: Movie[];
 }

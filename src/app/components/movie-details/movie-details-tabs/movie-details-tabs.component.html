@@ -1,0 +1,15 @@
+<div class="tabs">
+  <div class="selection">
+    <ul>
+      <li *ngFor="let tab of tabs; index as i"
+          class="tab" [class.active]="tab.active"
+          (click)="changeTab(i)">
+        <i class="icon" [ngClass]="tab.icon"></i>
+        {{tab.title}}
+      </li>
+    </ul>
+  </div>
+  <template #tabContent></template>
+</div>
+
+

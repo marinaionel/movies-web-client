@@ -1,0 +1,26 @@
+iframe {
+  width: 70%;
+  height: 100%;
+}
+
+.block-iframe {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 30rem;
+}
+
+.block-tabs {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.tabs {
+  width: 90%;
+  height: 100%;
+}
+
+.title {
+  color: white;
+}

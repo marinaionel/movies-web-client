@@ -1,4 +1,4 @@
-export interface Movie {
+export interface Movie{
   title: string;
   poster: string;
   genre: string;

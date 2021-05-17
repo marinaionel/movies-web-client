@@ -1,19 +1,20 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MoviesProviderService} from '../../services/movies-provider.service';
-import {Movie} from '../../dto/Movie';
-import {takeUntil} from 'rxjs/operators';
-import {Subject} from 'rxjs';
-import {ChartCarouselComponent} from '../chart-carousel/chart-carousel.component';
-import {AnimationType} from '../chart-carousel/carousel.animations';
-import {ChartSlide} from '../../dto/ChartSlide';
-import {Chart} from '../../dto/Chart';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MoviesProviderService } from '../../services/movies-provider.service';
+import { Movie } from '../../dto/Movie';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { ChartCarouselComponent } from '../chart-carousel/chart-carousel.component';
+import { ChartSlide } from '../../dto/ChartSlide';
+import { Chart } from '../../dto/Chart';
+import { Router } from '@angular/router';
+import { AnimationType } from '../chart-carousel/animations/carousel.animations';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent implements OnInit{
   @ViewChild(ChartCarouselComponent) carousel: ChartCarouselComponent;
 
   private readonly destroy$: Subject<void>;
@@ -23,15 +24,15 @@ export class LayoutComponent implements OnInit {
   public movies: Movie[] = [];
   public charts: Chart[] = [];
 
-  constructor(private moviesProvider: MoviesProviderService) {
-    this.carousel = new ChartCarouselComponent();
+  constructor(private moviesProvider: MoviesProviderService, private router: Router) {
+    this.carousel = new ChartCarouselComponent(router);
     this.destroy$ = new Subject();
   }
 
   ngOnInit(): void {
     this.moviesProvider.movies$().pipe(takeUntil(this.destroy$)).subscribe(
       movies => {
-        if (movies.length !== 0) {
+        if(movies.length !== 0) {
           this.movies = movies;
           this.slides = [
             {
@@ -42,7 +43,7 @@ export class LayoutComponent implements OnInit {
               movies: [this.movies[8], this.movies[9], this.movies[10], this.movies[11],
                 this.movies[12], this.movies[13], this.movies[14], this.movies[15]]
             },
-            {movies: [this.movies[2]]}
+            { movies: [this.movies[2]] }
           ];
           this.charts = [
             {

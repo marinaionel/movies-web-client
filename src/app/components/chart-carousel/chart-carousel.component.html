@@ -17,7 +17,7 @@
     <div class="centered-grid">
       <div class="row columns is-multiline">
         <div *ngFor="let movie of slide.movies" class="column is-3">
-          <div id="hoverCard" class="card">
+          <div class="card" (click)="navigateTo(movie.title)">
             <div class="card-image">
               <figure class="image is-16by9">
                 <img [src]="movie.poster">

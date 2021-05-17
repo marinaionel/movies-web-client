@@ -14,11 +14,14 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 import { AuthService } from './shared/services/auth.service';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MovieDetailsTabsComponent } from './components/movie-details/movie-details-tabs/movie-details-tabs.component';
+import { MovieDetailsPlotTabComponent } from './components/movie-details/movie-details-plot-tab/movie-details-plot-tab.component';
+import { MovieDetailsPageComponent } from './components/movie-details/movie-details-page/movie-details-page.component';
 
 @NgModule({
   imports: [
@@ -26,7 +29,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
   ],
@@ -39,8 +42,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     SignInComponent,
     SignUpComponent,
     DashboardComponent,
+    MovieDetailsTabsComponent,
+    MovieDetailsPlotTabComponent,
+    MovieDetailsPageComponent
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule{
+}
