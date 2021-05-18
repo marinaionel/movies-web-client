@@ -1,15 +1,13 @@
 import {
+  AfterViewInit,
   Component,
   ComponentFactoryResolver,
   ComponentRef,
-  Input,
   OnInit,
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
 import { MovieDetailsTab } from '../dto/MovieDetailsTab';
-import { MovieDetailsPlotTabComponent } from '../movie-details-plot-tab/movie-details-plot-tab.component';
-import { SignInComponent } from '../../auth/sign-in/sign-in.component';
 import { TabsProviderService } from '../services/tabs-provider.service';
 
 @Component({
@@ -17,7 +15,7 @@ import { TabsProviderService } from '../services/tabs-provider.service';
   templateUrl: './movie-details-tabs.component.html',
   styleUrls: ['./movie-details-tabs.component.css']
 })
-export class MovieDetailsTabsComponent {
+export class MovieDetailsTabsComponent implements AfterViewInit{
 
   private tabs: MovieDetailsTab[] = [];
 
@@ -29,20 +27,22 @@ export class MovieDetailsTabsComponent {
     tabsProvider.tabs$().subscribe((tabs) => this.tabs = tabs);
   }
 
-  public getTabs(): MovieDetailsTab[]{
+  ngAfterViewInit(): void {
+    const detailsTab = this.tabsProvider.getTabByOrderNumber(0);
+    const factory = this.resolver.resolveComponentFactory(detailsTab.component);
+    this.componentRef = this.container.createComponent(factory);
+  }
+
+  public getTabs(): MovieDetailsTab[] {
     return this.tabs;
   }
 
-  public changeTab(index: number): void {
-    this.tabs = this.tabs.map((tab, i) => i === index ? { ...tab, active: true } : { ...tab, active: false });
+  public changeTab(orderNumber: number): void {
+    this.tabs = this.tabs.map((tab, i) => i === orderNumber ? { ...tab, active: true } : { ...tab, active: false });
     this.container.clear();
 
-    if (index === 1) {
-      const factory = this.resolver.resolveComponentFactory(MovieDetailsPlotTabComponent);
-      this.componentRef = this.container.createComponent(factory);
-    } else if (index === 2) {
-      const factory = this.resolver.resolveComponentFactory(SignInComponent);
-      this.componentRef = this.container.createComponent(factory);
-    }
+    const detailsTab = this.tabsProvider.getTabByOrderNumber(orderNumber);
+    const factory = this.resolver.resolveComponentFactory(detailsTab.component);
+    this.componentRef = this.container.createComponent(factory);
   }
 }

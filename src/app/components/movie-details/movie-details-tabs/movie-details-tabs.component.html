@@ -1,9 +1,9 @@
 <div class="tabs">
   <div class="selection">
     <ul>
-      <li *ngFor="let tab of getTabs(); index as i"
+      <li *ngFor="let tab of getTabs()"
           class="tab" [class.active]="tab.active"
-          (click)="changeTab(i)">
+          (click)="changeTab(tab.orderNumber)">
         <img class="icon" [src]="tab.icon">
         {{tab.title}}
       </li>

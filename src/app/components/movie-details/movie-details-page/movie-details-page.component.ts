@@ -12,13 +12,13 @@ import { Observable } from 'rxjs';
 })
 export class MovieDetailsPageComponent implements OnInit{
 
-  public movie$!: Observable<Movie | undefined>;
+  private movie$!: Observable<Movie | undefined>;
+  private showLoading = true;
 
   constructor(
     private route: ActivatedRoute,
     private movieService: MoviesProviderService
   ) {
-
   }
 
   ngOnInit(): void {
@@ -27,6 +27,18 @@ export class MovieDetailsPageComponent implements OnInit{
           return this.movieService.getMovie$(params.get('title'));
         }
       ));
+  }
+
+  public getShowLoading(): boolean {
+    return this.showLoading;
+  }
+
+  public getMovie$(): Observable<Movie | undefined>{
+    return this.movie$;
+  }
+
+  public onLoad(): void {
+    this.showLoading = false;
   }
 
 }

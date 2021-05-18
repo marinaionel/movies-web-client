@@ -8,6 +8,7 @@ iframe {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 30rem;
 }
 
@@ -24,4 +25,12 @@ iframe {
 
 .title {
   color: white;
+}
+
+.spinner-container {
+  height: 3.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

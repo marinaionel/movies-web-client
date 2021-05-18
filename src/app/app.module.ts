@@ -22,6 +22,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MovieDetailsTabsComponent } from './components/movie-details/movie-details-tabs/movie-details-tabs.component';
 import { MovieDetailsPlotTabComponent } from './components/movie-details/movie-details-plot-tab/movie-details-plot-tab.component';
 import { MovieDetailsPageComponent } from './components/movie-details/movie-details-page/movie-details-page.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { MovieDetailsPageComponent } from './components/movie-details/movie-deta
     // AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    MatProgressSpinnerModule
   ],
   declarations: [
     AppComponent,
