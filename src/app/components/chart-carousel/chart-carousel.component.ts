@@ -46,7 +46,6 @@ export class ChartCarouselComponent{
   }
 
   navigateTo(movieTitle: string): void {
-    console.log(movieTitle);
     this.router.navigate(['/details', movieTitle]);
   }
 

@@ -32,7 +32,7 @@ export class LayoutComponent implements OnInit{
   ngOnInit(): void {
     this.moviesProvider.movies$().pipe(takeUntil(this.destroy$)).subscribe(
       movies => {
-        if(movies.length !== 0) {
+        if (movies.length !== 0) {
           this.movies = movies;
           this.slides = [
             {

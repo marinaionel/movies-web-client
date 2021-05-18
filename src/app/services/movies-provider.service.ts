@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class MoviesProviderService{
-  private moviesEndpoint = '/test';
+  private moviesEndpoint = './config/movies-mock.json';
   private mockedMoviesFile = './config/movies-mock.json';
 
   constructor(private client: HttpClient) {

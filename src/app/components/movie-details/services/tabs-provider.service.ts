@@ -20,35 +20,35 @@ export class TabsProviderService{
       {
         title: Constants.MOVIE_PLOT,
         active: true,
-        icon: '/assets/plot-icon.png',
+        icon: './assets/plot-icon.png',
         orderNumber: 0,
         component: MovieDetailsPlotTabComponent
       },
       {
         title: Constants.MOVIE_DETAILS,
         active: false,
-        icon: '/assets/details-icon.png',
+        icon: './assets/details-icon.png',
         orderNumber: 1,
         component: SignInComponent
       },
       {
         title: Constants.MOVIE_CREW,
         active: false,
-        icon: '/assets/crew-icon.png',
+        icon: './assets/crew-icon.png',
         orderNumber: 2,
         component: SignInComponent
       },
       {
         title: Constants.MOVIE_STATS,
         active: false,
-        icon: '/assets/stats-icon.png',
+        icon: './assets/stats-icon.png',
         orderNumber: 4,
         component: SignInComponent
       },
       {
         title: Constants.MOVIE_COMMENTS,
         active: false,
-        icon: '/assets/comment-icon.png',
+        icon: './assets/comment-icon.png',
         orderNumber: 3,
         component: SignInComponent
       }
