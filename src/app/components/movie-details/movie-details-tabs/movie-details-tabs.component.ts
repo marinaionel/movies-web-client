@@ -27,7 +27,9 @@ export class MovieDetailsTabsComponent implements AfterViewInit{
 
   @ViewChild(Constants.MOVIE_DYNAMIC_COMP, { read: ViewContainerRef }) container!: ViewContainerRef;
 
-  constructor(private resolver: ComponentFactoryResolver, private tabsProvider: TabsProviderService, private cdr: ChangeDetectorRef) {
+  constructor(private resolver: ComponentFactoryResolver,
+              private tabsProvider: TabsProviderService,
+              private changeDetectorReference: ChangeDetectorRef) {
     tabsProvider.tabs$().subscribe((tabs: MovieDetailsTab[]) => this.tabs = tabs);
   }
 
@@ -36,7 +38,7 @@ export class MovieDetailsTabsComponent implements AfterViewInit{
     const factory = this.resolver.resolveComponentFactory(detailsTab.component);
     this.componentRef = this.container.createComponent(factory);
     this.componentRef.instance.movie = this.movie;
-    this.cdr.detectChanges();
+    this.changeDetectorReference.detectChanges();
   }
 
   public getTabs(): MovieDetailsTab[] {
