@@ -48,6 +48,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MovieDetailsPlotTabComponent,
     MovieDetailsPageComponent,
   ],
+  entryComponents: [MovieDetailsPlotTabComponent],
   providers: [AuthService],
   bootstrap: [AppComponent],
 })

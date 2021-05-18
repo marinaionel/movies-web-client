@@ -4,6 +4,7 @@ import { MoviesProviderService } from '../../../services/movies-provider.service
 import { Movie } from '../../../dto/Movie';
 import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { Constants } from '../dto/Constants';
 
 @Component({
   selector: 'app-details-page',
@@ -24,7 +25,7 @@ export class MovieDetailsPageComponent implements OnInit{
   ngOnInit(): void {
     this.movie$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
-          return this.movieService.getMovie$(params.get('title'));
+          return this.movieService.getMovie$(params.get(Constants.MOVIE_URL_PARAMETER));
         }
       ));
   }
@@ -33,7 +34,7 @@ export class MovieDetailsPageComponent implements OnInit{
     return this.showLoading;
   }
 
-  public getMovie$(): Observable<Movie | undefined>{
+  public getMovie$(): Observable<Movie | undefined> {
     return this.movie$;
   }
 

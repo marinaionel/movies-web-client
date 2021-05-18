@@ -5,14 +5,17 @@
   </div>
   <div class="block-iframe">
     <iframe
-            class="has-text-centered"
-            src="https://www.youtube.com/embed/-964sSBviK0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-            (load)="onLoad()">
+      class="has-text-centered"
+      src="https://www.youtube.com/embed/-964sSBviK0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+      (load)="onLoad()">
     </iframe>
   </div>
   <div class="block-tabs">
-    <app-movie-details-tabs class="tabs"></app-movie-details-tabs>
+    <app-movie-details-tabs
+      [movie]="movie"
+      class="tabs">
+    </app-movie-details-tabs>
   </div>
 </section>
 
