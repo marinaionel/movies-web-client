@@ -2,8 +2,8 @@
   <div
     *ngIf="currentIndex === getCurrentSlide()"
     class="slide"
-    [@slideAnimation]="animationType">
-
+    [@slideAnimation]="animationType"
+  >
     <!-- Navigation buttons -->
     <button class="control prev" (click)="onPreviousClick()">
       <span class="arrow left"></span>
@@ -20,11 +20,11 @@
           <div class="card" (click)="navigateTo(movie.title)">
             <div class="card-image">
               <figure class="image is-16by9">
-                <img [src]="movie.poster">
+                <img [src]="movie.poster" />
               </figure>
             </div>
             <div class="overlay">
-              {{movie.title}}
+              {{ movie.title }}
             </div>
           </div>
         </div>
@@ -32,4 +32,3 @@
     </div>
   </div>
 </ng-container>
-
