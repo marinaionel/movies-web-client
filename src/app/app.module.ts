@@ -30,10 +30,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    // AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   declarations: [
     AppComponent,
@@ -46,10 +46,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     DashboardComponent,
     MovieDetailsTabsComponent,
     MovieDetailsPlotTabComponent,
-    MovieDetailsPageComponent
+    MovieDetailsPageComponent,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
 })
-export class AppModule{
-}
+export class AppModule {}
