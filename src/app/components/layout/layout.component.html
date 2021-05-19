@@ -1,8 +1,8 @@
 <section class="container">
   <section class="section" *ngFor="let chart of charts">
-    <section class="message-header">{{chart.title}}</section>
+    <section class="message-header">{{chart.name}}</section>
     <div class="carousel-wrapper">
-      <app-chart-carousel [slides]="chart.slides" [animationType]="animationType">
+      <app-chart-carousel [chart]="chart" [animationType]="animationType">
       </app-chart-carousel>
     </div>
   </section>

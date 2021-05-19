@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
 import { AnimationType, scaleIn, scaleOut } from './animations/carousel.animations';
 import { Protocol } from 'puppeteer';
-import integer = Protocol.integer;
-import { ChartSlide } from '../../dto/ChartSlide';
 import { Router } from '@angular/router';
+import { Chart } from '../../dto/Chart';
+import { ChartSlide } from '../../dto/ChartSlide';
+import integer = Protocol.integer;
 
 @Component({
   selector: 'app-chart-carousel',
@@ -22,13 +23,23 @@ import { Router } from '@angular/router';
   ]
 })
 
-export class ChartCarouselComponent{
-  @Input() public slides: ChartSlide[] = [];
+export class ChartCarouselComponent implements OnInit{
+  @Input() public chart!: Chart;
   @Input() public animationType = AnimationType.Scale;
 
+  public slides!: ChartSlide[];
   private currentSlide = 0;
+  private chunk = 8;
 
   constructor(private router: Router) {
+  }
+
+  ngOnInit(): void {
+    let temp;
+    for (let i = 0, j = this.chart.movies.length; i < j; i += this.chunk) {
+      temp = this.chart.movies.slice(i, i + this.chunk);
+      this.slides.push({ movies: temp });
+    }
   }
 
   public getCurrentSlide(): integer {

@@ -1,6 +1,6 @@
-import { ChartSlide } from './ChartSlide';
+import { Movie } from './Movie';
 
 export interface Chart{
-  title: string;
-  slides: ChartSlide[];
+  name: string;
+  movies: Movie[];
 }
