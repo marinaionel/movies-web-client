@@ -96,3 +96,11 @@
   touch-action: auto;
   transform: scale(1)
 }
+
+.paginator {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 32rem;
+  color: white;
+}

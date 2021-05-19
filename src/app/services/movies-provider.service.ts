@@ -10,6 +10,7 @@ import { catchError, map } from 'rxjs/operators';
 export class MoviesProviderService{
   private moviesEndpoint = './config/movies-mock.json';
   private mockedMoviesFile = './config/movies-mock.json';
+  private getMovieEndpoint = 'https://moviesss.azurewebsites.net/api/Movie/';
 
   constructor(private client: HttpClient) {
   }
@@ -23,8 +24,11 @@ export class MoviesProviderService{
     );
   }
 
-  public getMovie$(title: string | null): Observable<Movie | undefined> {
-    return title ? this.movies$().pipe(map((movies: Movie[]) => movies.find(movie => movie.title === title))) : of(undefined);
+  public getMovie$(idString: string | null): Observable<Movie | null>{
+    return this.client.get<Movie>(this.getMovieEndpoint + idString).pipe(catchError(error => {
+      console.log(error);
+      return of(null);
+    }));
   }
 
   private getUrl(): string {

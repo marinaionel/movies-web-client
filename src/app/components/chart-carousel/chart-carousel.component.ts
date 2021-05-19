@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { Chart } from '../../dto/Chart';
 import { ChartSlide } from '../../dto/ChartSlide';
 import integer = Protocol.integer;
+import { Movie } from '../../dto/Movie';
+import { Constants } from '../movie-details/dto/Constants';
 
 @Component({
   selector: 'app-chart-carousel',
@@ -27,17 +29,17 @@ export class ChartCarouselComponent implements OnInit{
   @Input() public chart!: Chart;
   @Input() public animationType = AnimationType.Scale;
 
-  public slides!: ChartSlide[];
+  private slides: ChartSlide[] = [];
   private currentSlide = 0;
-  private chunk = 8;
+  private chunk = Constants.CHART_SLIDE_CHUNK;
 
   constructor(private router: Router) {
   }
 
   ngOnInit(): void {
-    let temp;
-    for (let i = 0, j = this.chart.movies.length; i < j; i += this.chunk) {
-      temp = this.chart.movies.slice(i, i + this.chunk);
+    let temp: Movie[];
+    for (let i = 0, j = this.chart.movies.$values.length; i < j; i += this.chunk) {
+      temp = this.chart.movies.$values.slice(i, i + this.chunk);
       this.slides.push({ movies: temp });
     }
   }
@@ -46,20 +48,25 @@ export class ChartCarouselComponent implements OnInit{
     return this.currentSlide;
   }
 
-  onPreviousClick(): void {
+  public getLastSlide(): integer {
+    return this.slides.length;
+  }
+
+  public getSlides(): ChartSlide[]{
+    return this.slides;
+  }
+
+  public onPreviousClick(): void {
     const previous = this.currentSlide - 1;
     this.currentSlide = previous < 0 ? this.slides.length - 1 : previous;
   }
 
-  onNextClick(): void {
+  public onNextClick(): void {
     const next = this.currentSlide + 1;
     this.currentSlide = next === this.slides.length ? 0 : next;
   }
 
-  navigateTo(movieTitle: string): void {
-    this.router.navigate(['/details', movieTitle]);
+  public navigateTo(idString: string): void {
+    this.router.navigate(['/details', idString]);
   }
-
 }
-
-

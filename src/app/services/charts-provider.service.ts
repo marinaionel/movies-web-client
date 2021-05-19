@@ -1,23 +1,22 @@
 import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Movie } from '../dto/Movie';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { Chart } from '../dto/Chart';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChartsProviderService {
+export class ChartsProviderService{
 
-  private moviesEndpoint = 'https://moviesss.azurewebsites.net/api/Chart/2000s-top-movies';
-  private mockedMoviesFile = 'https://moviesss.azurewebsites.net/api/Chart/2000s-top-movies';
+  private moviesEndpoint = 'https://moviesss.azurewebsites.net/api/Chart/all';
+  private mockedMoviesFile = 'https://moviesss.azurewebsites.net/api/Chart/all';
 
   constructor(private client: HttpClient) {
   }
 
   public charts$(): Observable<Chart[]> {
-    return this.client.get<Chart[]>(this.getUrl()).pipe(
+    return this.client.get<Chart[]>(this.getUrl(), { params: { max: '100', offset: '0' } }).pipe(
       catchError(error => {
         console.log(error);
         return of([]);

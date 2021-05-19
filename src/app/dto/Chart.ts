@@ -1,6 +1,6 @@
-import { Movie } from './Movie';
+import { MovieResponse } from './MovieResponse';
 
 export interface Chart{
   name: string;
-  movies: Movie[];
+  movies: MovieResponse;
 }

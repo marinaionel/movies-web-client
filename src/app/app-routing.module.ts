@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'verify-email-address', component: VerifyEmailComponent },
 
   { path: '', component: LayoutComponent },
-  { path: 'details/:title', component: MovieDetailsPageComponent },
+  { path: 'details/:idString', component: MovieDetailsPageComponent },
   { path: '**', redirectTo: '/sign-in' }
 ];
 

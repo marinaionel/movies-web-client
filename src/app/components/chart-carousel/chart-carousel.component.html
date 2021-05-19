@@ -1,4 +1,4 @@
-<ng-container *ngFor="let slide of slides; let currentIndex = index">
+<ng-container *ngFor="let slide of getSlides(); let currentIndex = index">
   <div
     *ngIf="currentIndex === getCurrentSlide()"
     class="slide"
@@ -17,10 +17,10 @@
     <div class="centered-grid">
       <div class="row columns is-multiline">
         <div *ngFor="let movie of slide.movies" class="column is-3">
-          <div class="card" (click)="navigateTo(movie.title)">
+          <div class="card" (click)="navigateTo(movie.idString)">
             <div class="card-image">
               <figure class="image is-16by9">
-                <img [src]="movie.poster" />
+                <img [src]="movie.poster"/>
               </figure>
             </div>
             <div class="overlay">
@@ -32,3 +32,6 @@
     </div>
   </div>
 </ng-container>
+<div class="paginator">
+  <div>Slide {{getCurrentSlide() + 1}} of {{getLastSlide()}}</div>
+</div>

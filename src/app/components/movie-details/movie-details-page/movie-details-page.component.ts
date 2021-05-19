@@ -13,7 +13,7 @@ import { Constants } from '../dto/Constants';
 })
 export class MovieDetailsPageComponent implements OnInit{
 
-  private movie$!: Observable<Movie | undefined>;
+  private movie$!: Observable<Movie | null>;
   private showLoading = true;
 
   constructor(
@@ -34,7 +34,7 @@ export class MovieDetailsPageComponent implements OnInit{
     return this.showLoading;
   }
 
-  public getMovie$(): Observable<Movie | undefined> {
+  public getMovie$(): Observable<Movie | null> {
     return this.movie$;
   }
 
