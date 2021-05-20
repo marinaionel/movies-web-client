@@ -2,7 +2,8 @@ import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Movie } from '../dto/Movie';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
+import { Routes } from '../dto/Routes';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { catchError, map } from 'rxjs/operators';
 export class MoviesProviderService{
   private moviesEndpoint = './config/movies-mock.json';
   private mockedMoviesFile = './config/movies-mock.json';
-  private getMovieEndpoint = 'https://moviesss.azurewebsites.net/api/Movie/';
+  private getMovieEndpoint = Routes.GET_MOVIE_BY_ID;
 
   constructor(private client: HttpClient) {
   }

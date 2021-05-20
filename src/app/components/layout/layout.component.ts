@@ -6,6 +6,7 @@ import { Chart } from '../../dto/Chart';
 import { Router } from '@angular/router';
 import { AnimationType } from '../chart-carousel/animations/carousel.animations';
 import { ChartsProviderService } from '../../services/charts-provider.service';
+import { SpinnerOverlayService } from '../../services/spinner-overlay.service';
 
 @Component({
   selector: 'app-layout',
@@ -20,19 +21,25 @@ export class LayoutComponent implements OnInit{
   public charts: Chart[] = [];
   public animationType = AnimationType.Scale;
 
-  constructor(private chartsProvider: ChartsProviderService, private router: Router) {
+  constructor(
+    private chartsProvider: ChartsProviderService,
+    private router: Router,
+    private overlayService: SpinnerOverlayService
+  ) {
     this.carousel = new ChartCarouselComponent(router);
     this.destroy$ = new Subject();
   }
 
   ngOnInit(): void {
+    this.overlayService.getSpinner$().next(true);
     this.chartsProvider.charts$().pipe(takeUntil(this.destroy$)).subscribe(
       charts => {
-        if (charts.length !== 0) {
-          this.charts = charts;
-        } else {
-          this.showError();
-        }
+            if (charts.length !== 0) {
+              this.charts = charts;
+              this.overlayService.getSpinner$().next(false);
+            } else {
+              this.showError();
+            }
       }
     );
   }

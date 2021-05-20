@@ -1,8 +1,5 @@
 <section class="container" *ngIf="getMovie$() | async as movie">
   <div class="title has-text-centered">{{movie.title}}</div>
-  <div class="spinner-container">
-    <mat-spinner [diameter]="50" color="#fff" *ngIf="getShowLoading()"></mat-spinner>
-  </div>
   <div class="block-iframe">
     <iframe
       class="has-text-centered"

@@ -23,6 +23,8 @@ import { MovieDetailsTabsComponent } from './components/movie-details/movie-deta
 import { MovieDetailsPlotTabComponent } from './components/movie-details/movie-details-plot-tab/movie-details-plot-tab.component';
 import { MovieDetailsPageComponent } from './components/movie-details/movie-details-page/movie-details-page.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { CustomSpinnerComponent } from './components/custom-spinner/custom-spinner.component';
 
 @NgModule({
   imports: [
@@ -34,6 +36,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AngularFireAuthModule,
     AngularFirestoreModule,
     MatProgressSpinnerModule,
+    OverlayModule
   ],
   declarations: [
     AppComponent,
@@ -47,6 +50,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MovieDetailsTabsComponent,
     MovieDetailsPlotTabComponent,
     MovieDetailsPageComponent,
+    CustomSpinnerComponent,
   ],
   entryComponents: [MovieDetailsPlotTabComponent],
   providers: [AuthService],
