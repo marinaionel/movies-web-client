@@ -54,6 +54,6 @@ export class MovieDetailsTabsComponent implements AfterViewInit{
     const detailsTab = this.tabsProvider.getTabByOrderNumber(orderNumber);
     const factory = this.resolver.resolveComponentFactory(detailsTab.component);
     this.componentRef = this.container.createComponent(factory);
-    this.componentRef.instance.data = this.movie;
+    this.componentRef.instance.movie = this.movie;
   }
 }
