@@ -1,0 +1,28 @@
+<div *ngFor="let comment of movie.comments
+                |slice:((paginator.pageIndex) * paginator.pageSize) : ((paginator.pageIndex + 1) * paginator.pageSize)"
+     class="media-content">
+  <div class="username">
+    <strong>{{comment.user}}</strong>
+    <br>
+    <small>{{comment.userEmail}}</small>
+  </div>
+  <p>
+    {{comment.text}}
+  </p>
+</div>
+<br>
+
+<article class="media-content">
+  <div class="field">
+    <textarea class="textarea" placeholder="Add a comment..."></textarea>
+  </div>
+  <div class="level-left level-item">
+    <button class="button is-info">Submit</button>
+  </div>
+</article>
+
+<mat-paginator #paginator [length]="length"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="[1, 5, 10, 25, 100]"
+               (page)="pageEvent = $event">
+</mat-paginator>

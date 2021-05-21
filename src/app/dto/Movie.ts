@@ -1,3 +1,5 @@
+import { MovieComment } from './MovieComment';
+
 export interface Movie{
   title: string;
   id: string;
@@ -12,4 +14,5 @@ export interface Movie{
   plot: string;
   runtime: string;
   releaseDate: string;
+  comments: MovieComment[];
 }

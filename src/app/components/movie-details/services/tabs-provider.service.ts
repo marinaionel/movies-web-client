@@ -4,6 +4,7 @@ import { Constants } from '../dto/Constants';
 import { Observable, of } from 'rxjs';
 import { MovieDetailsPlotTabComponent } from '../movie-details-plot-tab/movie-details-plot-tab.component';
 import { SignInComponent } from '../../auth/sign-in/sign-in.component';
+import { MovieDetailsCommentsComponent } from '../movie-details-comments/movie-details-comments.component';
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +51,7 @@ export class TabsProviderService{
         active: false,
         icon: './assets/comment-icon.png',
         orderNumber: 3,
-        component: SignInComponent
+        component: MovieDetailsCommentsComponent
       }
     ];
   }

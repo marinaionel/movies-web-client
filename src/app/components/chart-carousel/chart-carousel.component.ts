@@ -8,6 +8,7 @@ import { ChartSlide } from '../../dto/ChartSlide';
 import integer = Protocol.integer;
 import { Movie } from '../../dto/Movie';
 import { Constants } from '../movie-details/dto/Constants';
+import { Routes } from '../../dto/Routes';
 
 @Component({
   selector: 'app-chart-carousel',
@@ -38,6 +39,11 @@ export class ChartCarouselComponent implements OnInit{
 
   ngOnInit(): void {
     let temp: Movie[];
+    this.chart.movies.$values.forEach((movie: Movie) => {
+      if (!movie.poster){
+        movie.poster = Constants.NOT_FOUND_IMAGE;
+      }
+    });
     for (let i = 0, j = this.chart.movies.$values.length; i < j; i += this.chunk) {
       temp = this.chart.movies.$values.slice(i, i + this.chunk);
       this.slides.push({ movies: temp });
@@ -52,7 +58,7 @@ export class ChartCarouselComponent implements OnInit{
     return this.slides.length;
   }
 
-  public getSlides(): ChartSlide[]{
+  public getSlides(): ChartSlide[] {
     return this.slides;
   }
 
@@ -67,6 +73,6 @@ export class ChartCarouselComponent implements OnInit{
   }
 
   public navigateTo(idString: string): void {
-    this.router.navigate(['/details', idString]);
+    this.router.navigate([Routes.BASE_DETAILS_URL, idString]);
   }
 }

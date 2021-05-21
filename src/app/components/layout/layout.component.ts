@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { AnimationType } from '../chart-carousel/animations/carousel.animations';
 import { ChartsProviderService } from '../../services/charts-provider.service';
 import { SpinnerOverlayService } from '../../services/spinner-overlay.service';
+import { Constants } from '../../dto/Constants';
 
 @Component({
   selector: 'app-layout',
@@ -45,6 +46,6 @@ export class LayoutComponent implements OnInit{
   }
 
   private showError(): void {
-    window.alert('Movies are not available.');
+    window.alert(Constants.MOVIES_NOT_AVAILABLE_ERROR);
   }
 }

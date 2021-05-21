@@ -49,7 +49,7 @@ export class MovieDetailsPageComponent implements OnInit{
   }
 
   private secureYoutubeTrailerURL(id: string): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + id);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(Constants.YTB_IFRAME_BASE_URL + id);
   }
 
   public getSecureMovieURL(): SafeResourceUrl{

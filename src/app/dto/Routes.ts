@@ -7,6 +7,7 @@ export abstract class Routes{
   public static GET_ALL_CHARTS = 'https://moviesss.azurewebsites.net/api/Chart/all';
   public static GET_ALL_CHARTS_PARAM_MAX = '100';
   public static GET_ALL_CHARTS_PARAM_OFFSET = '0';
+  public static BASE_DETAILS_URL = '/details';
 
 
 }

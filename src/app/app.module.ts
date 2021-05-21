@@ -25,6 +25,8 @@ import { MovieDetailsPageComponent } from './components/movie-details/movie-deta
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CustomSpinnerComponent } from './components/custom-spinner/custom-spinner.component';
+import { MovieDetailsCommentsComponent } from './components/movie-details/movie-details-comments/movie-details-comments.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -36,7 +38,8 @@ import { CustomSpinnerComponent } from './components/custom-spinner/custom-spinn
     AngularFireAuthModule,
     AngularFirestoreModule,
     MatProgressSpinnerModule,
-    OverlayModule
+    OverlayModule,
+    MatPaginatorModule
   ],
   declarations: [
     AppComponent,
@@ -51,6 +54,7 @@ import { CustomSpinnerComponent } from './components/custom-spinner/custom-spinn
     MovieDetailsPlotTabComponent,
     MovieDetailsPageComponent,
     CustomSpinnerComponent,
+    MovieDetailsCommentsComponent,
   ],
   entryComponents: [MovieDetailsPlotTabComponent],
   providers: [AuthService],
