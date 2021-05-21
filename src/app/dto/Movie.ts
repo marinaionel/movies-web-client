@@ -4,10 +4,10 @@ export interface Movie{
   idString: string;
   year: string;
   poster: string;
-  genre: string;
+  genre: string[];
   trailer: string;
   boxOffice: string;
-  language: string;
+  language: string[];
   country: string;
   plot: string;
   runtime: string;

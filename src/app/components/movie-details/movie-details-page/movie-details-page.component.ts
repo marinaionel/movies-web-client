@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { MoviesProviderService } from '../../../services/movies-provider.service';
 import { Movie } from '../../../dto/Movie';
@@ -6,6 +6,7 @@ import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Constants } from '../dto/Constants';
 import { SpinnerOverlayService } from '../../../services/spinner-overlay.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-details-page',
@@ -15,11 +16,13 @@ import { SpinnerOverlayService } from '../../../services/spinner-overlay.service
 export class MovieDetailsPageComponent implements OnInit{
 
   private movie$!: Observable<Movie | null>;
+  private secureMovieURL!: SafeResourceUrl;
 
   constructor(
     private route: ActivatedRoute,
     private movieService: MoviesProviderService,
-    private overlayService: SpinnerOverlayService
+    private overlayService: SpinnerOverlayService,
+    private sanitizer: DomSanitizer
   ) {
   }
 
@@ -30,6 +33,11 @@ export class MovieDetailsPageComponent implements OnInit{
           return this.movieService.getMovie$(params.get(Constants.MOVIE_URL_PARAMETER));
         }
       ));
+    this.movie$.subscribe(movie => {
+      if (movie) {
+        this.secureMovieURL = this.secureYoutubeTrailerURL(movie?.trailer);
+      }
+    });
   }
 
   public getMovie$(): Observable<Movie | null> {
@@ -38,5 +46,13 @@ export class MovieDetailsPageComponent implements OnInit{
 
   public onLoad(): void {
     this.overlayService.getSpinner$().next(false);
+  }
+
+  private secureYoutubeTrailerURL(id: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + id);
+  }
+
+  public getSecureMovieURL(): SafeResourceUrl{
+    return this.secureMovieURL;
   }
 }
