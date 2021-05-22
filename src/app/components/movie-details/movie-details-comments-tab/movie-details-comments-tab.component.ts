@@ -6,7 +6,7 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-movie-details-comments',
   templateUrl: './movie-details-comments.component.html',
-  styleUrls: ['./movie-details-comments.component.css']
+  styleUrls: ['./movie-details-comments.component.scss']
 })
 export class MovieDetailsCommentsTabComponent implements OnInit, AfterViewInit{
 

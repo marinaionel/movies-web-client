@@ -1,14 +1,14 @@
-.media-content{
+.media-content {
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
 
-.username{
+.username {
   border: solid black 1px;
   text-align: center;
 }
 
-.noComments{
+.noComments {
   border: solid black 1px;
   text-align: center;
   margin-top: 1rem;
@@ -19,6 +19,7 @@
   background: #1E1E1E;
   color: #EEE;
   overflow: hidden;
+  border-radius: 3rem;
 }
 
 div.stars {
@@ -26,8 +27,11 @@ div.stars {
   display: inline-block;
 }
 
-.clearButton{
-  margin-top: 0.5rem;
-  background: darkorange;
+.buttonStyle {
+  background-color: darkorange;
+  color: black;
 }
 
+.textarea{
+
+}

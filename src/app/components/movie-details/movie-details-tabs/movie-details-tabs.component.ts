@@ -16,7 +16,7 @@ import { Constants } from '../dto/Constants';
 @Component({
   selector: 'app-movie-details-tabs',
   templateUrl: './movie-details-tabs.component.html',
-  styleUrls: ['./movie-details-tabs.component.css']
+  styleUrls: ['./movie-details-tabs.component.scss']
 })
 export class MovieDetailsTabsComponent implements AfterViewInit{
 

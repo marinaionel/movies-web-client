@@ -4,7 +4,7 @@ import { Movie } from '../../../dto/Movie';
 @Component({
   selector: 'app-movie-details-more-details-tab',
   templateUrl: './movie-details-more-details-tab.component.html',
-  styleUrls: ['./movie-details-more-details-tab.component.css']
+  styleUrls: ['./movie-details-more-details-tab.component.scss']
 })
 export class MovieDetailsMoreDetailsTabComponent implements OnInit {
 

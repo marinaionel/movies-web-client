@@ -30,7 +30,7 @@
     <textarea class="textarea" placeholder="Add a comment..."></textarea>
   </div>
   <div class="level-left level-item">
-    <button class="button is-info">Submit</button>
+    <button class="button buttonStyle">Submit</button>
   </div>
 </article>
 
@@ -38,5 +38,6 @@
                [disabled]="disablePaginator()"
                [pageSize]="pageSize"
                [pageSizeOptions]="[1, 5, 10, 25, 100]"
-               (page)="pageEvent = $event">
+               (page)="pageEvent = $event"
+               showFirstLastButtons>
 </mat-paginator>
