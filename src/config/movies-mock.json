@@ -1,7 +1,7 @@
 {
   "title": "House MD - Generic mocked movie",
   "genre": ["Drama", "Documentary"],
-  "trailer": "5DIADh4lMq8",
+  "trailerYoutubeVideoId": "5DIADh4lMq8",
   "boxOffice": "500000",
   "language": ["English", "French"],
   "country": "USA",
