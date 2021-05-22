@@ -7,7 +7,7 @@ export interface Movie{
   year: string;
   poster: string;
   genre: string[];
-  trailer: string;
+  trailerYoutubeVideoId: string;
   boxOffice: string;
   language: string[];
   country: string;

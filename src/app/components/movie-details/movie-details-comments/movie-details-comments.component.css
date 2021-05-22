@@ -7,3 +7,9 @@
   border: solid black 1px;
   text-align: center;
 }
+
+.noComments{
+  border: solid black 1px;
+  text-align: center;
+  margin-top: 1rem;
+}

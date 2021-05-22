@@ -1,3 +1,7 @@
+<div class="noComments" *ngIf="disabledPaginator()">
+  <strong>There are no comments...</strong>
+</div>
+
 <div *ngFor="let comment of movie.comments
                 |slice:((paginator.pageIndex) * paginator.pageSize) : ((paginator.pageIndex + 1) * paginator.pageSize)"
      class="media-content">
@@ -22,6 +26,7 @@
 </article>
 
 <mat-paginator #paginator [length]="length"
+               [disabled]="disabledPaginator()"
                [pageSize]="pageSize"
                [pageSizeOptions]="[1, 5, 10, 25, 100]"
                (page)="pageEvent = $event">

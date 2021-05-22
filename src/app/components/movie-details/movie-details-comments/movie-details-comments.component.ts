@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Movie } from '../../../dto/Movie';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
@@ -7,7 +7,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
   templateUrl: './movie-details-comments.component.html',
   styleUrls: ['./movie-details-comments.component.css']
 })
-export class MovieDetailsCommentsComponent implements OnInit{
+export class MovieDetailsCommentsComponent implements OnInit, AfterViewInit{
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input() movie!: Movie;
@@ -16,10 +16,18 @@ export class MovieDetailsCommentsComponent implements OnInit{
   public length!: number;
   public pageSize = 10;
 
-  constructor() {
+  constructor(private changeDetectorReference: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
     this.length = this.movie.comments.length;
+  }
+
+  ngAfterViewInit(): void {
+    this.changeDetectorReference.detectChanges();
+  }
+
+  public disabledPaginator(): boolean{
+    return this.movie.comments.length <= 1;
   }
 }

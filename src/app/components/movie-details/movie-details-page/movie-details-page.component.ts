@@ -33,9 +33,9 @@ export class MovieDetailsPageComponent implements OnInit{
           return this.movieService.getMovie$(params.get(Constants.MOVIE_URL_PARAMETER));
         }
       ));
-    this.movie$.subscribe(movie => {
+    this.movie$.subscribe((movie: Movie | null) => {
       if (movie) {
-        this.secureMovieURL = this.secureYoutubeTrailerURL(movie?.trailer);
+        this.secureMovieURL = this.secureYoutubeTrailerURL(movie?.trailerYoutubeVideoId);
       }
     });
   }
