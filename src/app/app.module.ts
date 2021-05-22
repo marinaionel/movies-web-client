@@ -27,6 +27,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { CustomSpinnerComponent } from './components/custom-spinner/custom-spinner.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MovieDetailsCommentsTabComponent } from './components/movie-details/movie-details-comments-tab/movie-details-comments-tab.component';
+import { MovieDetailsMoreDetailsTabComponent } from './components/movie-details/movie-details-more-details-tab/movie-details-more-details-tab.component';
 
 @NgModule({
   imports: [
@@ -55,6 +56,7 @@ import { MovieDetailsCommentsTabComponent } from './components/movie-details/mov
     MovieDetailsPageComponent,
     CustomSpinnerComponent,
     MovieDetailsCommentsTabComponent,
+    MovieDetailsMoreDetailsTabComponent,
   ],
   entryComponents: [MovieDetailsPlotTabComponent],
   providers: [AuthService],

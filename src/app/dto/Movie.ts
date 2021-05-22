@@ -1,4 +1,7 @@
 import { MovieComment } from './MovieComment';
+import { LanguageResponse } from './LanguageResponse';
+import { GenreResponse } from './GenreResponse';
+import { CountryResponse } from './CountryResponse';
 
 export interface Movie{
   title: string;
@@ -6,11 +9,11 @@ export interface Movie{
   idString: string;
   year: string;
   poster: string;
-  genre: string[];
+  genres: GenreResponse;
   trailerYoutubeVideoId: string;
   boxOffice: string;
-  language: string[];
-  country: string;
+  languages: LanguageResponse;
+  countries: CountryResponse;
   plot: string;
   runtime: string;
   releaseDate: string;

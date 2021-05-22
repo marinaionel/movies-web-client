@@ -1,0 +1,17 @@
+<div>BoxOffice: {{movie.boxOffice}}</div>
+<br>
+<div>Countries:</div>
+<div *ngFor="let country of movie.countries.$values">{{country.name}}</div>
+<br>
+<div>Runtime: {{movie.runtime}}</div>
+<br>
+<div>Release: {{movie.releaseDate}}</div>
+<br>
+<div>Year: {{movie.year}}</div>
+<br>
+<div>Languages:</div>
+<div *ngFor="let language of movie.languages.$values">{{language.name}}</div>
+<br>
+<div>Genres:</div>
+<div *ngFor="let genre of movie.genres.$values">{{genre.name}}</div>
+<br>
