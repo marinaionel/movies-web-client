@@ -7,7 +7,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
   templateUrl: './movie-details-comments.component.html',
   styleUrls: ['./movie-details-comments.component.css']
 })
-export class MovieDetailsCommentsComponent implements OnInit, AfterViewInit{
+export class MovieDetailsCommentsTabComponent implements OnInit, AfterViewInit{
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input() movie!: Movie;

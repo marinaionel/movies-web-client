@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MovieDetailsCommentsTabComponent } from './movie-details-comments-tab.component';
 
-import { MovieDetailsCommentsComponent } from './movie-details-comments.component';
 
 describe('MovieDetailsCommentsComponent', () => {
-  let component: MovieDetailsCommentsComponent;
-  let fixture: ComponentFixture<MovieDetailsCommentsComponent>;
+  let component: MovieDetailsCommentsTabComponent;
+  let fixture: ComponentFixture<MovieDetailsCommentsTabComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MovieDetailsCommentsComponent ]
+      declarations: [ MovieDetailsCommentsTabComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MovieDetailsCommentsComponent);
+    fixture = TestBed.createComponent(MovieDetailsCommentsTabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
