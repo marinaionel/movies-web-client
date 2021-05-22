@@ -4,7 +4,7 @@ import { Constants } from '../dto/Constants';
 import { Observable, of } from 'rxjs';
 import { MovieDetailsPlotTabComponent } from '../movie-details-plot-tab/movie-details-plot-tab.component';
 import { SignInComponent } from '../../auth/sign-in/sign-in.component';
-import { MovieDetailsCommentsTabComponent } from '../movie-details-comments-tab/movie-details-comments-tab.component';
+import { MovieDetailsReviewsTabComponent } from '../movie-details-reviews-tab/movie-details-reviews-tab.component';
 import { MovieDetailsMoreDetailsTabComponent } from '../movie-details-more-details-tab/movie-details-more-details-tab.component';
 
 @Injectable({
@@ -52,7 +52,7 @@ export class TabsProviderService{
         active: false,
         icon: './assets/comment-icon.png',
         orderNumber: 3,
-        component: MovieDetailsCommentsTabComponent
+        component: MovieDetailsReviewsTabComponent
       }
     ];
   }

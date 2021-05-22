@@ -5,10 +5,10 @@ import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-movie-details-comments',
-  templateUrl: './movie-details-comments.component.html',
-  styleUrls: ['./movie-details-comments.component.scss']
+  templateUrl: './movie-details-reviews.component.html',
+  styleUrls: ['./movie-details-reviews.component.scss']
 })
-export class MovieDetailsCommentsTabComponent implements OnInit, AfterViewInit{
+export class MovieDetailsReviewsTabComponent implements OnInit, AfterViewInit{
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Input() movie!: Movie;

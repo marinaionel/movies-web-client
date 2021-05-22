@@ -26,7 +26,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CustomSpinnerComponent } from './components/custom-spinner/custom-spinner.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MovieDetailsCommentsTabComponent } from './components/movie-details/movie-details-comments-tab/movie-details-comments-tab.component';
+import { MovieDetailsReviewsTabComponent } from './components/movie-details/movie-details-reviews-tab/movie-details-reviews-tab.component';
 import { MovieDetailsMoreDetailsTabComponent } from './components/movie-details/movie-details-more-details-tab/movie-details-more-details-tab.component';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FormsModule } from '@angular/forms';
@@ -58,7 +58,7 @@ import { FormsModule } from '@angular/forms';
     MovieDetailsPlotTabComponent,
     MovieDetailsPageComponent,
     CustomSpinnerComponent,
-    MovieDetailsCommentsTabComponent,
+    MovieDetailsReviewsTabComponent,
     MovieDetailsMoreDetailsTabComponent
   ],
   entryComponents: [MovieDetailsPlotTabComponent],
