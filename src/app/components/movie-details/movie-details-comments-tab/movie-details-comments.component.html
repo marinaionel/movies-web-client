@@ -1,20 +1,29 @@
-<div class="noComments" *ngIf="disabledPaginator()">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="noComments" *ngIf="!showComments()">
   <strong>There are no comments...</strong>
 </div>
-
-<div *ngFor="let comment of movie.comments
+<div *ngIf="showComments()">
+  <div *ngFor="let comment of movie.comments
                 |slice:((paginator.pageIndex) * paginator.pageSize) : ((paginator.pageIndex + 1) * paginator.pageSize)"
-     class="media-content">
-  <div class="username">
-    <strong>{{comment.user}}</strong>
-    <br>
-    <small>{{comment.userEmail}}</small>
+    class="media-content">
+    <div class="username">
+      <strong>{{comment.user}}</strong>
+      <br>
+      <small>{{comment.userEmail}}</small>
+    </div>
+    <p>
+      {{comment.text}}
+    </p>
   </div>
-  <p>
-    {{comment.text}}
-  </p>
 </div>
 <br>
+
+<div class="cont">
+  <div class="stars">
+    <ngx-star-rating [(ngModel)]="rating"></ngx-star-rating >
+  </div>
+  <div>Rating: {{ rating }}</div>
+</div>
 
 <article class="media-content">
   <div class="field">
@@ -26,7 +35,7 @@
 </article>
 
 <mat-paginator #paginator [length]="length"
-               [disabled]="disabledPaginator()"
+               [disabled]="disablePaginator()"
                [pageSize]="pageSize"
                [pageSizeOptions]="[1, 5, 10, 25, 100]"
                (page)="pageEvent = $event">

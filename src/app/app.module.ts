@@ -28,7 +28,8 @@ import { CustomSpinnerComponent } from './components/custom-spinner/custom-spinn
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MovieDetailsCommentsTabComponent } from './components/movie-details/movie-details-comments-tab/movie-details-comments-tab.component';
 import { MovieDetailsMoreDetailsTabComponent } from './components/movie-details/movie-details-more-details-tab/movie-details-more-details-tab.component';
-
+import { NgxStarRatingModule } from 'ngx-star-rating';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     BrowserModule,
@@ -40,7 +41,9 @@ import { MovieDetailsMoreDetailsTabComponent } from './components/movie-details/
     AngularFirestoreModule,
     MatProgressSpinnerModule,
     OverlayModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgxStarRatingModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,
@@ -56,7 +59,7 @@ import { MovieDetailsMoreDetailsTabComponent } from './components/movie-details/
     MovieDetailsPageComponent,
     CustomSpinnerComponent,
     MovieDetailsCommentsTabComponent,
-    MovieDetailsMoreDetailsTabComponent,
+    MovieDetailsMoreDetailsTabComponent
   ],
   entryComponents: [MovieDetailsPlotTabComponent],
   providers: [AuthService],

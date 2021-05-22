@@ -13,3 +13,21 @@
   text-align: center;
   margin-top: 1rem;
 }
+
+.cont {
+  text-align: center;
+  background: #1E1E1E;
+  color: #EEE;
+  overflow: hidden;
+}
+
+div.stars {
+  width: 17rem;
+  display: inline-block;
+}
+
+.clearButton{
+  margin-top: 0.5rem;
+  background: darkorange;
+}
+
