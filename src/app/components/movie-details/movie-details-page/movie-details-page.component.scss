@@ -10,6 +10,7 @@ iframe {
   justify-content: center;
   align-items: center;
   height: 30rem;
+  margin-top: 1rem;
 }
 
 .block-tabs {
@@ -25,4 +26,22 @@ iframe {
 
 .title {
   color: white;
+  cursor: default;
+}
+
+.rating-container {
+  width: 30%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.star {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.box{
+  cursor: default;
 }

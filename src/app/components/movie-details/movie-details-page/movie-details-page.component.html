@@ -1,5 +1,16 @@
 <section class="container" *ngIf="getMovie$() | async as movie">
   <div class="title has-text-centered">{{movie.title}}</div>
+  <div class="box has-background-black has-text-white rating-container">
+    <div class="star">
+      <div class="">Average Rating: {{movie.ratings.averageRating}}/10</div>
+      <div>
+        <figure class="image is-16x16">
+          <img src="{{getStarURL()}}">
+        </figure>
+      </div>
+    </div>
+    <div class="has-text-centered">Total votes: {{movie.ratings.votes}}</div>
+  </div>
   <div class="block-iframe">
     <iframe
       class="has-text-centered"

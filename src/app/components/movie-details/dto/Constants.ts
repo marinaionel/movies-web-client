@@ -10,6 +10,7 @@ export abstract class Constants{
   public static CHART_SLIDE_CHUNK = 4;
 
   public static NOT_FOUND_IMAGE = './assets/whiteBackground.jpg';
+  public static STAR = './assets/star.png';
 
   public static YTB_IFRAME_BASE_URL = 'https://www.youtube.com/embed/';
 }

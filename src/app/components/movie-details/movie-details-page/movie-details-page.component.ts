@@ -17,6 +17,7 @@ export class MovieDetailsPageComponent implements OnInit{
 
   private movie$!: Observable<Movie | null>;
   private secureMovieURL!: SafeResourceUrl;
+  private starURL = Constants.STAR;
 
   constructor(
     private route: ActivatedRoute,
@@ -54,5 +55,9 @@ export class MovieDetailsPageComponent implements OnInit{
 
   public getSecureMovieURL(): SafeResourceUrl{
     return this.secureMovieURL;
+  }
+
+  public getStarURL(): string{
+    return this.starURL ;
   }
 }

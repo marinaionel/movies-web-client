@@ -36,6 +36,7 @@ export class ChartCarouselComponent implements OnInit{
   private slides: ChartSlide[] = [];
   private currentSlide = 0;
   private chunk = Constants.CHART_SLIDE_CHUNK;
+  private starURL = Constants.STAR;
 
   constructor(private router: Router, private client: HttpClient) {
   }
@@ -90,4 +91,9 @@ export class ChartCarouselComponent implements OnInit{
       return EMPTY;
     }));
   }
+
+  /*
+  public getStarURL(): string{
+    return this.starURL ;
+  }*/
 }
