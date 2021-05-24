@@ -68,28 +68,28 @@
   opacity: 0;
   touch-action: none;
   transition: opacity 1s;
+  border-radius: 1.5rem;
 }
 
 .card {
   cursor: pointer;
+  border-radius: 1.5rem;
 }
 
 .card:hover {
   img {
     transition-delay: 0.5s;
     opacity: 0.2;
+    border-radius: 1.5rem;
   }
-
+  border-radius: 1.5rem;
   transition-delay: 0.5s;
   z-index: 10;
-  transform: scale(1.7);
-}
-
-.card:hover ~ .card {
-  transform: translate3d(140px, 0, 0);
+  transform: scale(1.5);
 }
 
 .card:hover .overlay {
+  border-radius: 1.5rem;
   color: black;
   transition-delay: 0.5s;
   opacity: 1;
@@ -101,6 +101,6 @@
   display: flex;
   justify-content: center;
   position: relative;
-  top: 32rem;
+  top: 30rem;
   color: white;
 }

@@ -9,6 +9,9 @@ import integer = Protocol.integer;
 import { Movie } from '../../dto/Movie';
 import { Constants } from '../movie-details/dto/Constants';
 import { Routes } from '../../dto/Routes';
+import { catchError } from 'rxjs/operators';
+import { EMPTY } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-chart-carousel',
@@ -34,19 +37,21 @@ export class ChartCarouselComponent implements OnInit{
   private currentSlide = 0;
   private chunk = Constants.CHART_SLIDE_CHUNK;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private client: HttpClient) {
   }
 
   ngOnInit(): void {
     let temp: Movie[];
-    this.chart.movies.$values.forEach((movie: Movie) => {
-      if (!movie.poster){
-        movie.poster = Constants.NOT_FOUND_IMAGE;
+    if (this.chart && this.chart.movies){
+      this.chart.movies.forEach((movie: Movie) => {
+        if (!movie.posterUrl) {
+          this.handlePosterURL(movie);
+        }
+      });
+      for (let i = 0, j = this.chart.movies.length; i < j; i += this.chunk) {
+        temp = this.chart.movies.slice(i, i + this.chunk);
+        this.slides.push({ movies: temp });
       }
-    });
-    for (let i = 0, j = this.chart.movies.$values.length; i < j; i += this.chunk) {
-      temp = this.chart.movies.$values.slice(i, i + this.chunk);
-      this.slides.push({ movies: temp });
     }
   }
 
@@ -74,5 +79,15 @@ export class ChartCarouselComponent implements OnInit{
 
   public navigateTo(idString: string): void {
     this.router.navigate([Routes.BASE_DETAILS_URL, idString]);
+  }
+
+  private handlePosterURL(movie: Movie): void{
+    if (!movie.posterUrl) {
+      movie.posterUrl = Constants.NOT_FOUND_IMAGE;
+    }
+    this.client.get(movie.posterUrl).pipe(catchError(err => {
+      movie.posterUrl = Constants.NOT_FOUND_IMAGE;
+      return EMPTY;
+    }));
   }
 }

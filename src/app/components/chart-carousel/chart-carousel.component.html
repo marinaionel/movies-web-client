@@ -19,8 +19,8 @@
         <div *ngFor="let movie of slide.movies" class="column is-3">
           <div class="card" (click)="navigateTo(movie.idString)">
             <div class="card-image">
-              <figure class="image is-16by9">
-                <img [src]="movie.poster"/>
+              <figure class="image is-3by5">
+                <img [src]="movie.posterUrl"/>
               </figure>
             </div>
             <div class="overlay">

@@ -8,6 +8,7 @@ import { AnimationType } from '../chart-carousel/animations/carousel.animations'
 import { ChartsProviderService } from '../../services/charts-provider.service';
 import { SpinnerOverlayService } from '../../services/spinner-overlay.service';
 import { Constants } from '../../dto/Constants';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-layout',
@@ -25,9 +26,10 @@ export class LayoutComponent implements OnInit{
   constructor(
     private chartsProvider: ChartsProviderService,
     private router: Router,
-    private overlayService: SpinnerOverlayService
+    private overlayService: SpinnerOverlayService,
+    private client: HttpClient
   ) {
-    this.carousel = new ChartCarouselComponent(router);
+    this.carousel = new ChartCarouselComponent(router, client);
     this.destroy$ = new Subject();
   }
 
