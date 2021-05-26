@@ -21,11 +21,19 @@
   }
 }
 
-.image {
+.imagePoster {
   width: 8rem;
   height: 10rem;
+  margin-right: 2rem;
 }
 
-img {
-  max-height: 100%;
+.image-native{
+  height: 100%;
+  width: 100%;
+}
+
+.noCrew {
+  border: solid black 1px;
+  text-align: center;
+  margin-top: 1rem;
 }

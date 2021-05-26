@@ -1,5 +1,4 @@
 <div class="card">
-
   <header class="card-header" (click)="toggleActorsPanel()">
     <p class="card-header-title is-size-3">{{panelName}}</p>
     <div class="card-header-icon">
@@ -8,21 +7,23 @@
   </header>
 
   <div class="card-content" *ngIf="panelEnabled">
-    <article class="media" *ngFor="let crewMember of crewMembers">
-      <figure class="media-left">
-        <div class="image">
-          <img src="{{crewMember.imageUrl}}">
+    <div class="noCrew" *ngIf="!showCrew()">
+      <strong>There are no crew members...</strong>
+    </div>
+    <div *ngIf="showCrew()">
+      <article class="media" *ngFor="let crewMember of crewMembers">
+        <div class="imagePoster">
+          <img class="image-native" src="{{crewMember.imageUrl}}">
         </div>
-      </figure>
-
-      <div class="media-content">
-        <div class="content">
-          <p class="is-size-4">
-            <strong>{{crewMember.name}}</strong>
-          </p>
+        <div class="media-content">
+          <div class="content">
+            <p class="is-size-4">
+              <strong>{{crewMember.name}}</strong>
+            </p>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </div>
   </div>
 </div>
 

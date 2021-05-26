@@ -29,4 +29,11 @@ export class CrewGenericPanelComponent implements OnInit{
   public toggleActorsPanel(): void {
     this.panelEnabled = !this.panelEnabled;
   }
+
+  public showCrew(): boolean {
+    if (this.crewMembers) {
+      return this.crewMembers.length >= 1;
+    }
+    return false;
+  }
 }
