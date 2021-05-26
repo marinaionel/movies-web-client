@@ -7,10 +7,10 @@
   </header>
 
   <div class="card-content" *ngIf="panelEnabled">
-    <div class="noCrew" *ngIf="!showCrew()">
+    <div class="noCrew" *ngIf="!validCrewMembers()">
       <strong>There are no crew members...</strong>
     </div>
-    <div *ngIf="showCrew()">
+    <div *ngIf="validCrewMembers()">
       <article class="media" *ngFor="let crewMember of crewMembers">
         <div class="imagePoster">
           <img class="image-native" src="{{crewMember.imageUrl}}">

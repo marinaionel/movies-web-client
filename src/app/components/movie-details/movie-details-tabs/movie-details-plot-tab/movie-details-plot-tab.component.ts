@@ -13,4 +13,10 @@ export class MovieDetailsPlotTabComponent{
   constructor() {
   }
 
+  public showPlot(): boolean {
+    if (this.movie && this.movie.plot && this.movie.plot.length > 0) {
+      return true;
+    }
+    return false;
+  }
 }

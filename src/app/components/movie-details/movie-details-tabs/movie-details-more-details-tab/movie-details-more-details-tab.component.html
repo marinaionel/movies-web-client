@@ -2,44 +2,48 @@
   <img src="{{movie.posterUrl}}">
   <div class="details">
 
-    <div class="box has-background-black has-text-white has-text-centered">
-      <div class="box has-text-white has-text-centered chapter">BoxOffice</div>
-      <div>{{movie.boxOffice}}</div>
-    </div>
+    <app-details-generic-panel [details]="movie.boxOffice" [panelName]="boxOfficePanelName" [display]="showBoxOffice()"></app-details-generic-panel>
 
-    <div class="box has-background-black has-text-white has-text-centered">
+    <div class="box has-background-black has-text-white has-text-centered blackbox">
       <div class="box has-text-white has-text-centered chapter">Countries</div>
-      <div *ngFor="let country of movie.countries">
-        {{country.name}}
+      <div class="noDetails" *ngIf="!showCountries()">
+        <strong class="has-text-white">There is no data...</strong>
+      </div>
+      <div *ngIf="showCountries()">
+        <div *ngFor="let country of movie.countries">
+          {{country.name}}
+        </div>
       </div>
     </div>
 
-    <div class="box has-background-black has-text-white has-text-centered">
-      <div class="box has-text-white has-text-centered chapter">Runtime</div>
-      <div>{{movie.runtime}}</div>
-    </div>
+    <app-details-generic-panel [details]="movie.runtime" [panelName]="runTimePanelName" [display]="showRuntime()"></app-details-generic-panel>
 
-    <div class="box has-background-black has-text-white has-text-centered">
-      <div class="box has-text-white has-text-centered chapter">Release</div>
-      <div>{{movie.releaseDate | date}}</div>
-    </div>
+    <app-details-generic-panel [details]="movie.releaseDate | date"
+                               [panelName]="releaseDatePanelName" [display]="showReleaseDate()"></app-details-generic-panel>
 
-    <div class="box has-background-black has-text-white has-text-centered">
-      <div class="box has-text-white has-text-centered chapter">Year</div>
-      <div>{{movie.year}}</div>
-    </div>
+    <app-details-generic-panel [details]="movie.year" [panelName]="yearPanelName" [display]="showYear()"></app-details-generic-panel>
 
-    <div class="box has-background-black has-text-white has-text-centered">
+    <div class="box has-background-black has-text-white has-text-centered blackbox">
       <div class="box has-text-white has-text-centered chapter">Languages</div>
-      <div *ngFor="let language of movie.languages">
-        {{language.name}}
+      <div class="noDetails" *ngIf="!showLanguages()">
+        <strong class="has-text-white">There is no data...</strong>
+      </div>
+      <div *ngIf="showLanguages()">
+        <div *ngFor="let language of movie.languages">
+          {{language.name}}
+        </div>
       </div>
     </div>
 
-    <div class="box has-background-black has-text-white has-text-centered">
+    <div class="box has-background-black has-text-white has-text-centered blackbox">
       <div class="box has-text-white has-text-centered chapter">Genres</div>
-      <div *ngFor="let genre of movie.genres">
-        {{genre.name}}
+      <div class="noDetails" *ngIf="!showGenres()">
+        <strong class="has-text-white">There is no data...</strong>
+      </div>
+      <div *ngIf="showGenres()">
+        <div *ngFor="let genre of movie.genres">
+          {{genre.name}}
+        </div>
       </div>
     </div>
   </div>

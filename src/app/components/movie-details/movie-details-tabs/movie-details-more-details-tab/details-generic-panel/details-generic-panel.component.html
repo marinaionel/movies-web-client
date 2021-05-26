@@ -1,0 +1,9 @@
+<div class="box has-background-black has-text-white has-text-centered blackbox">
+  <div class="box has-text-white has-text-centered chapter">{{panelName}}</div>
+  <div class="noDetails" *ngIf="!display">
+    <strong class="has-text-white">There is no data...</strong>
+  </div>
+  <div *ngIf="display">
+    {{details}}
+  </div>
+</div>

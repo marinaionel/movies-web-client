@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Constants } from '../../../dto/Constants';
 import { CrewMember } from '../../../../../dto/CrewMember';
+import { Movie } from '../../../../../dto/Movie';
 
 @Component({
   selector: 'app-crew-generic-panel',
@@ -10,7 +11,9 @@ import { CrewMember } from '../../../../../dto/CrewMember';
 export class CrewGenericPanelComponent implements OnInit{
 
   @Input() panelName!: string;
-  @Input() crewMembers!: CrewMember[];
+  @Input() movie!: Movie;
+  @Input() directorsPanel!: boolean;
+  public crewMembers!: CrewMember[];
 
   public arrowUp = Constants.ARROW_UP;
   public arrowDown = Constants.ARROW_DOWN;
@@ -20,6 +23,12 @@ export class CrewGenericPanelComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    if (this.directorsPanel){
+      this.crewMembers = this.movie.directors;
+    }
+    else{
+      this.crewMembers = this.movie.actors;
+    }
   }
 
   public showArrow(): string {
@@ -30,10 +39,12 @@ export class CrewGenericPanelComponent implements OnInit{
     this.panelEnabled = !this.panelEnabled;
   }
 
-  public showCrew(): boolean {
-    if (this.crewMembers) {
-      return this.crewMembers.length >= 1;
+  public validCrewMembers(): boolean {
+    if (this.directorsPanel){
+      return this.movie && this.movie.directors && this.movie.directors.length > 0;
     }
-    return false;
+    else{
+      return this.movie && this.movie.actors && this.movie.actors.length > 0;
+    }
   }
 }

@@ -1,8 +1,8 @@
 <div class="noComments" *ngIf="!showComments()">
-  <strong>There are no comments...</strong>
+  <strong>There are no reviews...</strong>
 </div>
 <div *ngIf="showComments()">
-  <div *ngFor="let comment of movie.comments
+  <div *ngFor="let comment of movie.reviews
                 |slice:((paginator.pageIndex) * paginator.pageSize) : ((paginator.pageIndex + 1) * paginator.pageSize)"
     class="media-content">
     <div class="username">

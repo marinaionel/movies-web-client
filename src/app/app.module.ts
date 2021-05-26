@@ -32,6 +32,7 @@ import { FormsModule } from '@angular/forms';
 import { MovieStarsRatingComponent } from './components/movie-details/movie-details-tabs/movie-details-reviews-tab/movie-stars-rating/movie-stars-rating.component';
 import { MovieDetailsCrewMembersTabComponent } from './components/movie-details/movie-details-tabs/movie-details-crew-members-tab/src/movie-details-crew-members-tab.component';
 import { CrewGenericPanelComponent } from './components/movie-details/movie-details-tabs/movie-details-crew-members-tab/crew-generic-panel/crew-generic-panel.component';
+import { DetailsGenericPanelComponent } from './components/movie-details/movie-details-tabs/movie-details-more-details-tab/details-generic-panel/details-generic-panel.component';
 
 @NgModule({
   imports: [
@@ -64,7 +65,8 @@ import { CrewGenericPanelComponent } from './components/movie-details/movie-deta
     MovieDetailsMoreDetailsTabComponent,
     MovieStarsRatingComponent,
     MovieDetailsCrewMembersTabComponent,
-    CrewGenericPanelComponent
+    CrewGenericPanelComponent,
+    DetailsGenericPanelComponent
   ],
   entryComponents: [MovieDetailsPlotTabComponent],
   providers: [AuthService],

@@ -25,8 +25,10 @@
             </div>
             <div class="overlay">
               <div>
-                {{ movie.title }}
-                <div>Rating: {{movie.ratings}}/10</div>
+                <div class="has-text-centered">
+                  {{ movie.title }}
+                </div>
+                <div class="has-text-centered">Rating: {{movie.ratings.averageRating}}/10</div>
               </div>
             </div>
           </div>

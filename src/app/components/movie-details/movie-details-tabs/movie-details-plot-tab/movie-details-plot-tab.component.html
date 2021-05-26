@@ -1,2 +1,5 @@
-<p>{{movie.plot}}</p>
+<div class="noPlot" *ngIf="!showPlot()">
+  <strong>There is no plot...</strong>
+</div>
+<p *ngIf="showPlot()">{{movie.plot}}</p>
 

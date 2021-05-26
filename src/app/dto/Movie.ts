@@ -19,7 +19,7 @@ export interface Movie{
   plot: string;
   runtime: string;
   releaseDate: string;
-  comments: MovieReview[];
+  reviews: MovieReview[];
   ratings: MovieRating;
   actors: CrewMember[];
   directors: CrewMember[];

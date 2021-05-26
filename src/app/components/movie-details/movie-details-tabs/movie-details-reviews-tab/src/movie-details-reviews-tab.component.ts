@@ -24,7 +24,7 @@ export class MovieDetailsReviewsTabComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void {
-    this.movie && this.movie.comments ? this.length = this.movie.comments.length : this.length = 0;
+    this.movie && this.movie.reviews ? this.length = this.movie.reviews.length : this.length = 0;
   }
 
   ngAfterViewInit(): void {
@@ -32,15 +32,15 @@ export class MovieDetailsReviewsTabComponent implements OnInit, AfterViewInit{
   }
 
   public showComments(): boolean {
-    if (this.movie && this.movie.comments) {
-      return this.movie.comments.length >= 1;
+    if (this.movie && this.movie.reviews) {
+      return this.movie.reviews.length >= 1;
     }
     return false;
   }
 
   public disablePaginator(): boolean {
-    if (this.movie && this.movie.comments) {
-      return this.movie.comments.length <= 1;
+    if (this.movie && this.movie.reviews) {
+      return this.movie.reviews.length <= 1;
     } else {
       return true;
     }
