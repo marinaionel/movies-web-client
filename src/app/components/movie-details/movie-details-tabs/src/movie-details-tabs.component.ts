@@ -8,10 +8,10 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import { MovieDetailsTab } from '../dto/MovieDetailsTab';
-import { TabsProviderService } from '../services/tabs-provider.service';
-import { Movie } from '../../../dto/Movie';
-import { Constants } from '../dto/Constants';
+import { MovieDetailsTab } from '../../dto/MovieDetailsTab';
+import { TabsProviderService } from '../../services/tabs-provider.service';
+import { Movie } from '../../../../dto/Movie';
+import { Constants } from '../../dto/Constants';
 
 @Component({
   selector: 'app-movie-details-tabs',

@@ -4,8 +4,12 @@
       <li *ngFor="let tab of getTabs()"
           class="tab" [class.active]="tab.active"
           (click)="changeTab(tab.orderNumber)">
-        <img class="icon" [src]="tab.icon">
-        {{tab.title}}
+        <div>
+          <img class="icon" [src]="tab.icon">
+        </div>
+        <div>
+          {{tab.title}}
+        </div>
       </li>
     </ul>
   </div>

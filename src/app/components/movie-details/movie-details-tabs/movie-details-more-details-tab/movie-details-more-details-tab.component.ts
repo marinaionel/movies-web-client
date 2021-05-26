@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Movie } from '../../../dto/Movie';
-import { Constants } from '../dto/Constants';
+import { Movie } from '../../../../dto/Movie';
+import { Constants } from '../../dto/Constants';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
@@ -19,7 +19,7 @@ export class MovieDetailsMoreDetailsTabComponent implements OnInit {
 
   ngOnInit(): void {
     this.client.get(this.movie.posterUrl).pipe(catchError(err => {
-      this.movie.posterUrl = Constants.NOT_FOUND_IMAGE;
+      this.movie.posterUrl = Constants.NOT_FOUND_IMAGE_WHITE;
       return EMPTY;
     }));
   }

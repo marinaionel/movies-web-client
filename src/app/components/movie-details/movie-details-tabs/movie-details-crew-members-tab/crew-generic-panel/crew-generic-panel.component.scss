@@ -1,0 +1,31 @@
+.card {
+  margin-top: 1rem;
+}
+
+.card-header {
+  cursor: pointer;
+  &:hover {
+    background-color: lightgray;
+  }
+}
+
+.media {
+  padding: 1rem;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  cursor: pointer;
+  filter: grayscale(100%);
+  &:hover {
+    filter: grayscale(0%);
+  }
+}
+
+.image {
+  width: 8rem;
+  height: 10rem;
+}
+
+img {
+  max-height: 100%;
+}

@@ -3,6 +3,7 @@ import { Language } from './Language';
 import { Genre } from './Genre';
 import { Country } from './Country';
 import { MovieRating } from './MovieRating';
+import { CrewMember } from './CrewMember';
 
 export interface Movie{
   title: string;
@@ -20,4 +21,6 @@ export interface Movie{
   releaseDate: string;
   comments: MovieReview[];
   ratings: MovieRating;
+  actors: CrewMember[];
+  directors: CrewMember[];
 }

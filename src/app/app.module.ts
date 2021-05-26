@@ -19,17 +19,19 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { MovieDetailsTabsComponent } from './components/movie-details/movie-details-tabs/movie-details-tabs.component';
-import { MovieDetailsPlotTabComponent } from './components/movie-details/movie-details-plot-tab/movie-details-plot-tab.component';
+import { MovieDetailsTabsComponent } from './components/movie-details/movie-details-tabs/src/movie-details-tabs.component';
+import { MovieDetailsPlotTabComponent } from './components/movie-details/movie-details-tabs/movie-details-plot-tab/movie-details-plot-tab.component';
 import { MovieDetailsPageComponent } from './components/movie-details/movie-details-page/movie-details-page.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CustomSpinnerComponent } from './components/custom-spinner/custom-spinner.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MovieDetailsReviewsTabComponent } from './components/movie-details/movie-details-reviews-tab/movie-details-reviews-tab.component';
-import { MovieDetailsMoreDetailsTabComponent } from './components/movie-details/movie-details-more-details-tab/movie-details-more-details-tab.component';
+import { MovieDetailsReviewsTabComponent } from './components/movie-details/movie-details-tabs/movie-details-reviews-tab/src/movie-details-reviews-tab.component';
+import { MovieDetailsMoreDetailsTabComponent } from './components/movie-details/movie-details-tabs/movie-details-more-details-tab/movie-details-more-details-tab.component';
 import { FormsModule } from '@angular/forms';
-import { MovieStarsRatingComponent } from './components/movie-details/movie-details-reviews-tab/movie-stars-rating/movie-stars-rating.component';
+import { MovieStarsRatingComponent } from './components/movie-details/movie-details-tabs/movie-details-reviews-tab/movie-stars-rating/movie-stars-rating.component';
+import { MovieDetailsCrewMembersTabComponent } from './components/movie-details/movie-details-tabs/movie-details-crew-members-tab/src/movie-details-crew-members-tab.component';
+import { CrewGenericPanelComponent } from './components/movie-details/movie-details-tabs/movie-details-crew-members-tab/crew-generic-panel/crew-generic-panel.component';
 
 @NgModule({
   imports: [
@@ -60,7 +62,9 @@ import { MovieStarsRatingComponent } from './components/movie-details/movie-deta
     CustomSpinnerComponent,
     MovieDetailsReviewsTabComponent,
     MovieDetailsMoreDetailsTabComponent,
-    MovieStarsRatingComponent
+    MovieStarsRatingComponent,
+    MovieDetailsCrewMembersTabComponent,
+    CrewGenericPanelComponent
   ],
   entryComponents: [MovieDetailsPlotTabComponent],
   providers: [AuthService],

@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { MovieDetailsTab } from '../dto/MovieDetailsTab';
 import { Constants } from '../dto/Constants';
 import { Observable, of } from 'rxjs';
-import { MovieDetailsPlotTabComponent } from '../movie-details-plot-tab/movie-details-plot-tab.component';
+import { MovieDetailsPlotTabComponent } from '../movie-details-tabs/movie-details-plot-tab/movie-details-plot-tab.component';
 import { SignInComponent } from '../../auth/sign-in/sign-in.component';
-import { MovieDetailsReviewsTabComponent } from '../movie-details-reviews-tab/movie-details-reviews-tab.component';
-import { MovieDetailsMoreDetailsTabComponent } from '../movie-details-more-details-tab/movie-details-more-details-tab.component';
+import { MovieDetailsReviewsTabComponent } from '../movie-details-tabs/movie-details-reviews-tab/src/movie-details-reviews-tab.component';
+import { MovieDetailsMoreDetailsTabComponent } from '../movie-details-tabs/movie-details-more-details-tab/movie-details-more-details-tab.component';
+import { MovieDetailsCrewMembersTabComponent } from '../movie-details-tabs/movie-details-crew-members-tab/src/movie-details-crew-members-tab.component';
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,7 @@ export class TabsProviderService{
         active: false,
         icon: './assets/crew-icon.png',
         orderNumber: 2,
-        component: SignInComponent
+        component: MovieDetailsCrewMembersTabComponent
       },
       {
         title: Constants.MOVIE_STATS,
@@ -48,7 +49,7 @@ export class TabsProviderService{
         component: SignInComponent
       },
       {
-        title: Constants.MOVIE_COMMENTS,
+        title: Constants.MOVIE_REVIEWS,
         active: false,
         icon: './assets/comment-icon.png',
         orderNumber: 3,

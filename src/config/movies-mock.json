@@ -30,5 +30,20 @@
   "ratings": {
     "averageRating": "9",
     "votes": "5000000"
-  }
+  },
+  "actors": [
+    {
+      "name": "Hugh Laurie",
+      "imageUrl": "https://media.npr.org/assets/img/2012/04/25/hughbreakcane_sq-2ae3d0235652e7edea59b5c8a8b2df7c96dc7516-s800-c85.jpg"
+    },
+    {
+      "name": "Olivia Wilde",
+      "imageUrl": "http://images.fanpop.com/images/image_uploads/Olivia-Wilde-house-md-791085_384_480.jpg"
+    }
+  ],
+  "directors": [
+    {
+      "name": "Bryan Singer"
+    }
+  ]
 }

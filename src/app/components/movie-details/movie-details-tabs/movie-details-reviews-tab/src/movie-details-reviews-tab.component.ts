@@ -1,5 +1,5 @@
 import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
-import { Movie } from '../../../dto/Movie';
+import { Movie } from '../../../../../dto/Movie';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { FormGroup } from '@angular/forms';
 

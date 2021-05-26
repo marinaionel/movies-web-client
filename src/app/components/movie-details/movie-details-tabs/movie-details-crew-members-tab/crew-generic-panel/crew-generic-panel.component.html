@@ -1,0 +1,28 @@
+<div class="card">
+
+  <header class="card-header" (click)="toggleActorsPanel()">
+    <p class="card-header-title is-size-3">{{panelName}}</p>
+    <div class="card-header-icon">
+      <img class="icon" src="{{showArrow()}}">
+    </div>
+  </header>
+
+  <div class="card-content" *ngIf="panelEnabled">
+    <article class="media" *ngFor="let crewMember of crewMembers">
+      <figure class="media-left">
+        <div class="image">
+          <img src="{{crewMember.imageUrl}}">
+        </div>
+      </figure>
+
+      <div class="media-content">
+        <div class="content">
+          <p class="is-size-4">
+            <strong>{{crewMember.name}}</strong>
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
