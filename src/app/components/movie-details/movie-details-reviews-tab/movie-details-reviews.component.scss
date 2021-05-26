@@ -23,8 +23,11 @@
 }
 
 div.stars {
-  width: 17rem;
-  display: inline-block;
+  height: 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttonStyle {
@@ -32,6 +35,9 @@ div.stars {
   color: black;
 }
 
-.textarea{
-
+.rating-text{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

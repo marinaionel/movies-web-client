@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<form action="">
+  <ng-template ngFor let-star [ngForOf]="stars">
+    <input #ngxCheckbox class="star star-{{ star }}" id="star-{{ star }}-{{ id }}" type="radio" name="star"
+           (click)="rate(star)"
+           [checked]="value == star"/>
+    <label class="star star-{{ star }}" for="star-{{ star }}-{{ id }}"></label>
+  </ng-template>
+</form>

@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="noComments" *ngIf="!showComments()">
   <strong>There are no comments...</strong>
 </div>
@@ -20,9 +19,9 @@
 
 <div class="cont">
   <div class="stars">
-    <ngx-star-rating [(ngModel)]="rating"></ngx-star-rating>
+      <app-movie-stars-rating [(ngModel)]="rating"></app-movie-stars-rating>
   </div>
-  <div>Rating: {{ rating }}</div>
+  <div class="rating-text">Rating: {{ rating }}</div>
 </div>
 
 <article class="media-content">
