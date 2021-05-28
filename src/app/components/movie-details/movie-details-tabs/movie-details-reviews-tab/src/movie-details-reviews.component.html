@@ -1,38 +1,59 @@
-<div class="noComments" *ngIf="!showComments()">
+<div class="noComments" *ngIf="!showReviews()">
   <strong>There are no reviews...</strong>
 </div>
-<div *ngIf="showComments()">
-  <div *ngFor="let comment of movie.reviews
+<div *ngIf="showReviews()">
+  <div *ngFor="let review of movie.reviews
                 |slice:((paginator.pageIndex) * paginator.pageSize) : ((paginator.pageIndex + 1) * paginator.pageSize)"
-    class="media-content">
-    <div class="username">
-      <strong>{{comment.user}}</strong>
+       class="media-content">
+    <div class="rating-container">
+      <strong>{{review.title}}</strong>
       <br>
-      <small>{{comment.userEmail}}</small>
+      <div class="rating-text">
+        <div>
+          <small>{{review.rating}}/10</small>
+        </div>
+        <div>
+          <figure class="image is-16x16">
+            <img src="{{getStarURL()}}">
+          </figure>
+        </div>
+      </div>
     </div>
     <p>
-      {{comment.text}}
+      {{review.text}}
     </p>
   </div>
 </div>
 <br>
 
-<div class="cont">
-  <div class="stars">
-      <app-movie-stars-rating [(ngModel)]="rating"></app-movie-stars-rating>
+<div class="card">
+  <app-expandable-panel-header [panelName]="panelName"
+                               (panelToggled)="toggleReviewPanel()"></app-expandable-panel-header>
+
+  <div *ngIf="panelEnabled" class="card-content">
+    <div class="cont">
+      <div class="stars">
+        <app-movie-stars-rating [(ngModel)]="rating"></app-movie-stars-rating>
+      </div>
+      <div class="rating-text">Rating: {{ rating }}</div>
+    </div>
+
+    <article class="media-content">
+      <div class="field">
+        <textarea [(ngModel)]="reviewText" class="textarea" placeholder="Add a comment..."></textarea>
+      </div>
+
+      <div *ngIf="!reviewValidator()" class="invalid">
+        <div *ngIf="!ratingReviewValidator()">Rating is required.</div>
+        <div *ngIf="!textReviewValidator()">Text should have more than 10 characters.</div>
+      </div>
+
+      <div class="level-left level-item">
+        <button class="button buttonStyle" [disabled]="!reviewValidator()">Submit</button>
+      </div>
+    </article>
   </div>
-  <div class="rating-text">Rating: {{ rating }}</div>
 </div>
-
-<article class="media-content">
-  <div class="field">
-    <textarea class="textarea" placeholder="Add a comment..."></textarea>
-  </div>
-  <div class="level-left level-item">
-    <button class="button buttonStyle">Submit</button>
-  </div>
-</article>
-
 <mat-paginator #paginator [length]="length"
                [disabled]="disablePaginator()"
                [pageSize]="pageSize"

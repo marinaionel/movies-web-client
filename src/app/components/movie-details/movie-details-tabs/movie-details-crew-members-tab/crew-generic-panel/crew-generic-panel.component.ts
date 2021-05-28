@@ -14,9 +14,6 @@ export class CrewGenericPanelComponent implements OnInit{
   @Input() movie!: Movie;
   @Input() directorsPanel!: boolean;
   public crewMembers!: CrewMember[];
-
-  public arrowUp = Constants.ARROW_UP;
-  public arrowDown = Constants.ARROW_DOWN;
   public panelEnabled = true;
 
   constructor() {
@@ -31,11 +28,7 @@ export class CrewGenericPanelComponent implements OnInit{
     }
   }
 
-  public showArrow(): string {
-    return this.panelEnabled ? this.arrowUp : this.arrowDown;
-  }
-
-  public toggleActorsPanel(): void {
+  public toggleCrewPanel(): void {
     this.panelEnabled = !this.panelEnabled;
   }
 

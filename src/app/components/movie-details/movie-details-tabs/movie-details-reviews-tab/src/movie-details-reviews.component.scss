@@ -3,7 +3,7 @@
   margin-bottom: 2rem;
 }
 
-.username {
+.rating-container {
   border: solid black 1px;
   text-align: center;
 }
@@ -15,6 +15,7 @@
 }
 
 .cont {
+  margin-top: 1rem;
   text-align: center;
   background: #1E1E1E;
   color: #EEE;
@@ -40,4 +41,11 @@ div.stars {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.invalid{
+  color: red;
+  font-style: italic;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

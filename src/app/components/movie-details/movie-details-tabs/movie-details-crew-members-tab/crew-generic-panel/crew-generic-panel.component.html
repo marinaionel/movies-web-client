@@ -1,10 +1,6 @@
 <div class="card">
-  <header class="card-header" (click)="toggleActorsPanel()">
-    <p class="card-header-title is-size-3">{{panelName}}</p>
-    <div class="card-header-icon">
-      <img class="icon" src="{{showArrow()}}">
-    </div>
-  </header>
+
+  <app-expandable-panel-header [panelName]="panelName" (panelToggled)="toggleCrewPanel()"></app-expandable-panel-header>
 
   <div class="card-content" *ngIf="panelEnabled">
     <div class="noCrew" *ngIf="!validCrewMembers()">

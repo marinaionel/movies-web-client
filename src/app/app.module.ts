@@ -28,11 +28,12 @@ import { CustomSpinnerComponent } from './components/custom-spinner/custom-spinn
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MovieDetailsReviewsTabComponent } from './components/movie-details/movie-details-tabs/movie-details-reviews-tab/src/movie-details-reviews-tab.component';
 import { MovieDetailsMoreDetailsTabComponent } from './components/movie-details/movie-details-tabs/movie-details-more-details-tab/movie-details-more-details-tab.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MovieStarsRatingComponent } from './components/movie-details/movie-details-tabs/movie-details-reviews-tab/movie-stars-rating/movie-stars-rating.component';
 import { MovieDetailsCrewMembersTabComponent } from './components/movie-details/movie-details-tabs/movie-details-crew-members-tab/src/movie-details-crew-members-tab.component';
 import { CrewGenericPanelComponent } from './components/movie-details/movie-details-tabs/movie-details-crew-members-tab/crew-generic-panel/crew-generic-panel.component';
 import { DetailsGenericPanelComponent } from './components/movie-details/movie-details-tabs/movie-details-more-details-tab/details-generic-panel/details-generic-panel.component';
+import { ExpandablePanelHeaderComponent } from './components/movie-details/movie-details-tabs/expandable-panel-header/expandable-panel-header.component';
 
 @NgModule({
   imports: [
@@ -46,7 +47,8 @@ import { DetailsGenericPanelComponent } from './components/movie-details/movie-d
     MatProgressSpinnerModule,
     OverlayModule,
     MatPaginatorModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
@@ -66,7 +68,8 @@ import { DetailsGenericPanelComponent } from './components/movie-details/movie-d
     MovieStarsRatingComponent,
     MovieDetailsCrewMembersTabComponent,
     CrewGenericPanelComponent,
-    DetailsGenericPanelComponent
+    DetailsGenericPanelComponent,
+    ExpandablePanelHeaderComponent
   ],
   entryComponents: [MovieDetailsPlotTabComponent],
   providers: [AuthService],

@@ -1,5 +1,5 @@
 export interface MovieReview{
   text: string;
-  user: string;
-  userEmail: string;
+  title: string;
+  rating: string;
 }
