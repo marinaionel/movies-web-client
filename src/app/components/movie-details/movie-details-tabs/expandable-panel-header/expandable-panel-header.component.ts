@@ -10,9 +10,9 @@ export class ExpandablePanelHeaderComponent implements OnInit {
 
   @Input() panelName!: string;
   @Output() panelToggled = new EventEmitter<boolean>();
+  @Input() startsEnabled!: boolean;
   public arrowUp = Constants.ARROW_UP;
   public arrowDown = Constants.ARROW_DOWN;
-  public panelEnabled = true;
 
   constructor() { }
 
@@ -20,11 +20,11 @@ export class ExpandablePanelHeaderComponent implements OnInit {
   }
 
   public showArrow(): string {
-    return this.panelEnabled ? this.arrowUp : this.arrowDown;
+    return this.startsEnabled ? this.arrowUp : this.arrowDown;
   }
 
   public toggleActorsPanel(): void {
-    this.panelEnabled = !this.panelEnabled;
+    this.startsEnabled = !this.startsEnabled;
     this.panelToggled.emit(true);
   }
 }

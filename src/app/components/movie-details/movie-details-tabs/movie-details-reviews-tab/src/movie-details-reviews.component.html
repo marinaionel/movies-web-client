@@ -27,7 +27,7 @@
 <br>
 
 <div class="card">
-  <app-expandable-panel-header [panelName]="panelName"
+  <app-expandable-panel-header [panelName]="panelName" [startsEnabled]="panelEnabled"
                                (panelToggled)="toggleReviewPanel()"></app-expandable-panel-header>
 
   <div *ngIf="panelEnabled" class="card-content">

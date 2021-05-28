@@ -20,7 +20,7 @@ export class MovieDetailsReviewsTabComponent implements OnInit, AfterViewInit{
   public rating: number;
   public reviewText = '';
   public panelName = 'Leave a review';
-  public panelEnabled = true;
+  public panelEnabled = false;
 
   constructor(private changeDetectorReference: ChangeDetectorRef, private formBuilder: FormBuilder) {
     this.rating = 0;

@@ -1,6 +1,6 @@
 <div class="card">
 
-  <app-expandable-panel-header [panelName]="panelName" (panelToggled)="toggleCrewPanel()"></app-expandable-panel-header>
+  <app-expandable-panel-header [panelName]="panelName" [startsEnabled]="panelEnabled" (panelToggled)="toggleCrewPanel()"></app-expandable-panel-header>
 
   <div class="card-content" *ngIf="panelEnabled">
     <div class="noCrew" *ngIf="!validCrewMembers()">
