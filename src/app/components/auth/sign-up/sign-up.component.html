@@ -1,0 +1,69 @@
+<div class="hero-body">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+        <div class="box">
+          <div class="title">
+            Movie Finder Sign Up</div>
+          <div class="icon-title ">
+            <img src="{{appIcon}}">
+          </div>
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left">
+              <input type="email" class="input" placeholder="Email" [(ngModel)]="email" required>
+              <div class="icon is-left">
+                <img class="icon-dim" src="{{userIcon}}">
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control has-icons-left">
+              <input type="password" class="input" placeholder="Password" [(ngModel)]="password1" required>
+              <div class="icon is-left">
+                <img class="icon-dim" src="{{passwordIcon}}">
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Repeat Password</label>
+            <div class="control has-icons-left">
+              <input type="password" class="input" placeholder="Password" [(ngModel)]="password2" required>
+              <div class="icon is-left">
+                <img class="icon-dim" src="{{passwordIcon}}">
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="!loginValidator()" class="invalid">
+            <div *ngIf="!validateEmail()">Email is incorrect.</div>
+            <div *ngIf="!validatePassword1()">Password should be more than 5 characters. </div>
+            <div *ngIf="!validatePasswords()">Passwords should match. </div>
+          </div>
+
+          <div class="login-opt">
+            <div class="button-style">
+              <button class="button" [disabled]="!loginValidator()" (click)="authService.SignUp(email, password1)" routerLink="/sign-in">
+                Sign Up
+              </button>
+            </div>
+            <div class="button-style">
+              <button class="button" (click)="authService.GoogleAuth()">
+                <div class="icon is-left">
+                  <img class="icon-dim-google" src="{{googleIcon}}">
+                </div>
+                <div>
+                  Continue with Google
+                </div>
+              </button>
+            </div>
+            <div class="options">
+              <span routerLink="/sign-in">Already have an account? Log In.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

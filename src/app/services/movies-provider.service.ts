@@ -4,13 +4,14 @@ import { Observable, of } from 'rxjs';
 import { Movie } from '../dto/Movie';
 import { catchError } from 'rxjs/operators';
 import { Routes } from '../dto/Routes';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesProviderService{
 
-  constructor(private client: HttpClient) {
+  constructor(private client: HttpClient, private auth: AuthService) {
   }
 
   /*public movies$(): Observable<Movie[]> {
@@ -23,10 +24,14 @@ export class MoviesProviderService{
    }*/
 
   public getMovie$(idString: string | null): Observable<Movie | null> {
-    return this.client.get<Movie>(Routes.GET_MOVIE_BY_ID + idString).pipe(catchError((error: HttpResponse<Movie>) => {
-      console.log(error);
-      return this.getMockedMovie();
-    }));
+    return this.client.get<Movie>(Routes.GET_MOVIE_BY_ID + idString)
+      .pipe(catchError((error: HttpResponse<Movie>) => {
+        if (error.status === 401) {
+          this.auth.SignOut();
+        }
+        console.log(error);
+        return this.getMockedMovie();
+      }));
   }
 
   private getMockedMovie(): Observable<Movie> {

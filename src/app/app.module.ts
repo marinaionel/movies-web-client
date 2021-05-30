@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,12 +13,10 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
-import { AuthService } from './shared/services/auth.service';
+import { AuthService } from './services/auth.service';
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MovieDetailsTabsComponent } from './components/movie-details/movie-details-tabs/src/movie-details-tabs.component';
 import { MovieDetailsPlotTabComponent } from './components/movie-details/movie-details-tabs/movie-details-plot-tab/movie-details-plot-tab.component';
 import { MovieDetailsPageComponent } from './components/movie-details/movie-details-page/movie-details-page.component';
@@ -34,6 +32,10 @@ import { MovieDetailsCrewMembersTabComponent } from './components/movie-details/
 import { CrewGenericPanelComponent } from './components/movie-details/movie-details-tabs/movie-details-crew-members-tab/crew-generic-panel/crew-generic-panel.component';
 import { DetailsGenericPanelComponent } from './components/movie-details/movie-details-tabs/movie-details-more-details-tab/details-generic-panel/details-generic-panel.component';
 import { ExpandablePanelHeaderComponent } from './components/movie-details/movie-details-tabs/expandable-panel-header/expandable-panel-header.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { AuthInterceptor } from './services/AuthInterceptor';
 
 @NgModule({
   imports: [
@@ -48,17 +50,18 @@ import { ExpandablePanelHeaderComponent } from './components/movie-details/movie
     OverlayModule,
     MatPaginatorModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatToolbarModule,
+    MatCardModule
   ],
   declarations: [
     AppComponent,
     LayoutComponent,
     ChartCarouselComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent,
     SignInComponent,
     SignUpComponent,
-    DashboardComponent,
     MovieDetailsTabsComponent,
     MovieDetailsPlotTabComponent,
     MovieDetailsPageComponent,
@@ -72,7 +75,14 @@ import { ExpandablePanelHeaderComponent } from './components/movie-details/movie
     ExpandablePanelHeaderComponent
   ],
   entryComponents: [MovieDetailsPlotTabComponent],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi   : true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

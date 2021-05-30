@@ -49,7 +49,7 @@
       </div>
 
       <div class="level-left level-item">
-        <button class="button buttonStyle" [disabled]="!reviewValidator()">Submit</button>
+        <button class="button buttonStyle" [disabled]="!reviewValidator()" (click)="onSubmit()">Submit</button>
       </div>
     </article>
   </div>

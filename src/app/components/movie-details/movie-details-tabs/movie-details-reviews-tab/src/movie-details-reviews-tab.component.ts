@@ -16,7 +16,7 @@ export class MovieDetailsReviewsTabComponent implements OnInit, AfterViewInit{
 
   public pageEvent!: PageEvent;
   public length!: number;
-  public pageSize = 10;
+  public pageSize = 5;
   public rating: number;
   public reviewText = '';
   public panelName = 'Leave a review';
@@ -66,6 +66,6 @@ export class MovieDetailsReviewsTabComponent implements OnInit, AfterViewInit{
   }
 
   public onSubmit(): void {
-
+    console.warn(this.reviewText);
   }
 }

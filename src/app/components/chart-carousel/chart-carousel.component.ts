@@ -90,9 +90,4 @@ export class ChartCarouselComponent implements OnInit{
       return EMPTY;
     }));
   }
-
-
-  public getStarURL(): string{
-    return Constants.STAR ;
-  }
 }

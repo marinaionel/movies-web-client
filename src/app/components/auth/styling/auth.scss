@@ -1,0 +1,57 @@
+.column{
+  width: 50%;
+}
+
+.login-opt{
+  text-align: center;
+}
+
+.icon-dim{
+  height: 50%;
+}
+
+.icon-dim-google{
+  height: 80%;
+}
+
+.button-style {
+  margin-bottom: 1rem;
+  color: black;
+  :hover{
+    color: darkorange;
+  }
+}
+
+.options{
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  :hover{
+    text-decoration: underline;
+  }
+}
+
+.title{
+  text-align: center;
+}
+
+.icon-title{
+  height: 4rem;
+  width: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.hero-body{
+  position: fixed;
+  top: 13%;
+  width: 100%;
+}
+
+.invalid{
+  color: red;
+  font-style: italic;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+

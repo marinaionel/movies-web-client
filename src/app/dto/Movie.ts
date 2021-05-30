@@ -20,7 +20,7 @@ export interface Movie{
   runtime: string;
   releaseDate: string;
   reviews: MovieReview[];
-  ratings: MovieRating;
+  totalRatings: MovieRating;
   actors: CrewMember[];
   directors: CrewMember[];
 }
