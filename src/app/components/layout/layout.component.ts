@@ -39,12 +39,12 @@ export class LayoutComponent implements OnInit{
     this.overlayService.getSpinner$().next(true);
     this.chartsProvider.charts$().pipe(takeUntil(this.destroy$)).subscribe(
       charts => {
-            if (charts.length !== 0) {
-              this.charts = charts;
-              this.overlayService.getSpinner$().next(false);
-            } else {
-              this.showError();
-            }
+        if (charts.length !== 0) {
+          this.charts = charts;
+          this.overlayService.getSpinner$().next(false);
+        } else {
+          this.showError();
+        }
       }
     );
   }

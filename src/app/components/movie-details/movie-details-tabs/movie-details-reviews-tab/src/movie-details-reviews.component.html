@@ -5,12 +5,14 @@
   <div *ngFor="let review of movie.reviews
                 |slice:((paginator.pageIndex) * paginator.pageSize) : ((paginator.pageIndex + 1) * paginator.pageSize)"
        class="media-content">
+    <div class="message-header">
+      <p>{{review.account.name}}</p>
+    </div>
     <div class="rating-container">
-      <strong>{{review.title}}</strong>
-      <br>
+      <p>Title: {{review.title}}</p>
       <div class="rating-text">
         <div>
-          <small>{{review.rating}}/10</small>
+          Rating: <small>{{review.rating}}/10</small>
         </div>
         <div>
           <figure class="image is-16x16">

@@ -135,7 +135,6 @@ export class AuthService{
     if (this.token){
       return this.token;
     }else{
-      console.log(localStorage.getItem('token') || '');
       return JSON.parse(localStorage.getItem('token') || '');
     }
   }
