@@ -1,3 +1,4 @@
 <body>
-  <router-outlet></router-outlet>
+<app-toolbar *ngIf="auth.loginStatus"></app-toolbar>
+<router-outlet></router-outlet>
 </body>

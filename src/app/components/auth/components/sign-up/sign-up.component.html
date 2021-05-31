@@ -44,7 +44,7 @@
 
           <div class="login-opt">
             <div class="button-style">
-              <button class="button" [disabled]="!loginValidator()" (click)="authService.SignUp(email, password1)" routerLink="/sign-in">
+              <button class="button" [disabled]="!loginValidator()" (click)="authService.SignUp(email, password1)" routerLink="{{signInPath}}">
                 Sign Up
               </button>
             </div>
@@ -59,7 +59,7 @@
               </button>
             </div>
             <div class="options">
-              <span routerLink="/sign-in">Already have an account? Log In.</span>
+              <span routerLink="{{signInPath}}">Already have an account? Log In.</span>
             </div>
           </div>
         </div>

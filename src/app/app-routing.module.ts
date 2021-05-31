@@ -4,9 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './dto/auth.guard';
 import { LayoutComponent } from './components/layout/layout.component';
 import { MovieDetailsPageComponent } from './components/movie-details/movie-details-page/movie-details-page.component';
-import { SignInComponent } from './components/auth/sign-in/sign-in.component';
-import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
+import { SignInComponent } from './components/auth/components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/auth/components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/auth/components/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'},

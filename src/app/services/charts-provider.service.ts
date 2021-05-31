@@ -26,9 +26,9 @@ export class ChartsProviderService{
       .pipe(
         catchError((error: HttpErrorResponse) => {
           if (error.status === 401){
+            console.log(error);
             this.auth.SignOut();
           }
-          console.log(error);
           return of([]);
         })
       );

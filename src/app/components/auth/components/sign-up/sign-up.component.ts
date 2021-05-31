@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../services/auth.service';
-import { Constants } from '../dto/Constants';
-import { ValidationService } from '../services/validation.service';
+import { AuthService } from '../../../../services/auth.service';
+import { Constants } from '../../dto/Constants';
+import { ValidationService } from '../../services/validation.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,6 +17,8 @@ export class SignUpComponent implements OnInit{
   public email!: string;
   public password1!: string;
   public password2!: string;
+
+  public signInPath = Constants.SIGN_IN_URL;
 
   constructor(public authService: AuthService, private validation: ValidationService ) {
   }

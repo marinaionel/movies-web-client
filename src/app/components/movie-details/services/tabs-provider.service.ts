@@ -3,7 +3,7 @@ import { MovieDetailsTab } from '../dto/MovieDetailsTab';
 import { Constants } from '../dto/Constants';
 import { Observable, of } from 'rxjs';
 import { MovieDetailsPlotTabComponent } from '../movie-details-tabs/movie-details-plot-tab/movie-details-plot-tab.component';
-import { SignInComponent } from '../../auth/sign-in/sign-in.component';
+import { SignInComponent } from '../../auth/components/sign-in/sign-in.component';
 import { MovieDetailsReviewsTabComponent } from '../movie-details-tabs/movie-details-reviews-tab/src/movie-details-reviews-tab.component';
 import { MovieDetailsMoreDetailsTabComponent } from '../movie-details-tabs/movie-details-more-details-tab/movie-details-more-details-tab.component';
 import { MovieDetailsCrewMembersTabComponent } from '../movie-details-tabs/movie-details-crew-members-tab/src/movie-details-crew-members-tab.component';

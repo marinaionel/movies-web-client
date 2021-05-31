@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../../services/auth.service';
 import { FormBuilder } from '@angular/forms';
-import { Constants } from '../dto/Constants';
-import { ValidationService } from '../services/validation.service';
+import { Constants } from '../../dto/Constants';
+import { ValidationService } from '../../services/validation.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,6 +17,9 @@ export class SignInComponent implements OnInit{
   public appIcon = Constants.APP_ICON;
   public email!: string;
   public password!: string;
+
+  public signUpPath = Constants.SIGN_UP_URL;
+  public forgotPasswordPath = Constants.FORGOT_PASSWORD_URL;
 
   constructor(public authService: AuthService, private fb: FormBuilder, private validation: ValidationService) {
   }

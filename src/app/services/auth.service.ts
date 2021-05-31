@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, OnDestroy } from '@angular/core';
 import firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument, } from '@angular/fire/firestore';
@@ -8,26 +8,28 @@ import { User } from '../dto/User';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService{
-  userData: any;
+export class AuthService implements OnDestroy{
   private token!: string;
+  private loggedInStatus = JSON.parse(localStorage.getItem('loggedIn') || 'false');
 
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     public router: Router,
     public ngZone: NgZone
-  ) {
-    // save / delete user info
-    this.afAuth.authState.subscribe((user) => {
-      if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-      } else {
-        localStorage.removeItem('user');
-        sessionStorage.removeItem('token');
-      }
-    });
+  ) { }
+
+  ngOnDestroy(): void {
+    this.setLoginStatus(false);
+  }
+
+  public setLoginStatus(value: boolean): void {
+    this.loggedInStatus = value;
+    localStorage.setItem('loggedIn', 'true');
+  }
+
+  public get loginStatus(): boolean {
+    return JSON.parse(localStorage.getItem('loggedIn') || this.loggedInStatus.toString());
   }
 
   // Sign in with email/password
@@ -35,11 +37,10 @@ export class AuthService{
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.ngZone.run(() => {
           this.setUpToken();
+          this.setLoginStatus(true);
           this.router.navigate(['dashboard']);
-        });
-        this.SetUserData(result.user);
+          this.SetUserData(result.user);
       })
       .catch((error) => {
         window.alert(error.message);
@@ -64,6 +65,7 @@ export class AuthService{
       .then((result) => {
         this.ngZone.run(() => {
           this.setUpToken();
+          this.setLoginStatus(true);
           this.router.navigate(['dashboard']);
         });
         if (result.user !== undefined) {
@@ -95,7 +97,7 @@ export class AuthService{
 
   public async SignOut(): Promise<any> {
     await this.afAuth.signOut();
-    localStorage.removeItem('user');
+    this.setLoginStatus(false);
     this.router.navigate(['sign-in']);
   }
 
@@ -111,13 +113,7 @@ export class AuthService{
   }
 
   public get isLoggedIn(): boolean {
-    const userObject = localStorage.getItem('user');
-    if (userObject){
-      const user = JSON.parse(localStorage.getItem('user') || '');
-      return user !== null;
-    }else{
-      return false;
-    }
+    return this.loginStatus;
   }
 
   public GoogleAuth(): Promise<any> {
@@ -125,16 +121,16 @@ export class AuthService{
   }
 
   private setUpToken(): void {
-    firebase.auth().currentUser?.getIdToken().then((token: string) => {
+     firebase.auth().currentUser?.getIdToken().then((token: string) => {
       this.token = token;
       localStorage.setItem('token', JSON.stringify(this.token));
     });
   }
 
   public getToken(): string | null {
-    if (this.token){
+    if (this.token) {
       return this.token;
-    }else{
+    } else {
       return JSON.parse(localStorage.getItem('token') || '');
     }
   }
