@@ -7,7 +7,7 @@
       <strong>There are no crew members...</strong>
     </div>
     <div *ngIf="validCrewMembers()">
-      <article class="media" *ngFor="let crewMember of crewMembers">
+      <article class="media" *ngFor="let crewMember of crewMembers" (click)="navigateToCrewMember(crewMember)">
         <div class="imagePoster">
           <img class="image-native" src="{{crewMember.imageUrl}}">
         </div>

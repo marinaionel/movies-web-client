@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Constants } from '../../../dto/Constants';
 import { CrewMember } from '../../../../../dto/CrewMember';
 import { Movie } from '../../../../../dto/Movie';
+import { Router } from '@angular/router';
+import { Routes } from '../../../../../dto/Routes';
 
 @Component({
   selector: 'app-crew-generic-panel',
@@ -16,7 +17,7 @@ export class CrewGenericPanelComponent implements OnInit{
   public crewMembers!: CrewMember[];
   public panelEnabled = true;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
@@ -39,5 +40,9 @@ export class CrewGenericPanelComponent implements OnInit{
     else{
       return this.movie && this.movie.actors && this.movie.actors.length > 0;
     }
+  }
+
+  public navigateToCrewMember(crewMember: CrewMember): void{
+    this.router.navigate([Routes.CREW_DETAILS_URL, crewMember.id]);
   }
 }
