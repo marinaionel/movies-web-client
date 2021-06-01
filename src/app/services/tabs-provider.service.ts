@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
-import { MovieDetailsTab } from '../dto/MovieDetailsTab';
-import { Constants } from '../dto/Constants';
+import { MovieDetailsTab } from '../components/movie-details/dto/MovieDetailsTab';
+import { Constants } from '../components/movie-details/dto/Constants';
 import { Observable, of } from 'rxjs';
-import { MovieDetailsPlotTabComponent } from '../movie-details-tabs/movie-details-plot-tab/movie-details-plot-tab.component';
-import { SignInComponent } from '../../auth/components/sign-in/sign-in.component';
-import { MovieDetailsReviewsTabComponent } from '../movie-details-tabs/movie-details-reviews-tab/src/movie-details-reviews-tab.component';
-import { MovieDetailsMoreDetailsTabComponent } from '../movie-details-tabs/movie-details-more-details-tab/movie-details-more-details-tab.component';
-import { MovieDetailsCrewMembersTabComponent } from '../movie-details-tabs/movie-details-crew-members-tab/src/movie-details-crew-members-tab.component';
-import { CrewDetailsDescriptionTabComponent } from '../../crew-details/crew-details-tabs/crew-details-description-tab/crew-details-description-tab.component';
-import { CrewDirectorTabComponent } from '../../crew-details/crew-details-tabs/crew-director-tab/crew-director-tab.component';
-import { CrewActorTabComponent } from '../../crew-details/crew-details-tabs/crew-actor-tab/crew-actor-tab.component';
+import { MovieDetailsPlotTabComponent } from '../components/movie-details/movie-details-tabs/movie-details-plot-tab/movie-details-plot-tab.component';
+import { SignInComponent } from '../components/auth/components/sign-in/sign-in.component';
+import { MovieDetailsReviewsTabComponent } from '../components/movie-details/movie-details-tabs/movie-details-reviews-tab/src/movie-details-reviews-tab.component';
+import { MovieDetailsMoreDetailsTabComponent } from '../components/movie-details/movie-details-tabs/movie-details-more-details-tab/movie-details-more-details-tab.component';
+import { MovieDetailsCrewMembersTabComponent } from '../components/movie-details/movie-details-tabs/movie-details-crew-members-tab/src/movie-details-crew-members-tab.component';
+import { CrewDetailsDescriptionTabComponent } from '../components/crew-details/crew-details-tabs/crew-details-description-tab/crew-details-description-tab.component';
+import { CrewDirectorTabComponent } from '../components/crew-details/crew-details-tabs/crew-director-tab/crew-director-tab.component';
+import { CrewActorTabComponent } from '../components/crew-details/crew-details-tabs/crew-actor-tab/crew-actor-tab.component';
+import { MovieDetailsChartTabComponent } from '../components/movie-details/movie-details-tabs/movie-details-chart-tab/movie-details-chart-tab.component';
+import { CrewStatsTabComponent } from '../components/crew-details/crew-details-tabs/crew-stats-tab/crew-stats-tab.component';
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +52,7 @@ export class TabsProviderService{
         active: false,
         icon: './assets/stats-icon.png',
         orderNumber: 4,
-        component: SignInComponent
+        component: MovieDetailsChartTabComponent
       },
       {
         title: Constants.MOVIE_REVIEWS,
@@ -82,6 +84,13 @@ export class TabsProviderService{
         icon: './assets/actor.png',
         orderNumber: 2,
         component: CrewActorTabComponent
+      },
+      {
+        title: Constants.CREW_STATS,
+        active: false,
+        icon: './assets/stats-icon.png',
+        orderNumber: 3,
+        component: CrewStatsTabComponent
       }
     ];
   }

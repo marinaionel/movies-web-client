@@ -1,0 +1,39 @@
+<div class="noMovies" *ngIf="!errorActor && !errorDirector">
+  <strong>The person has not acted / directed in any movie...</strong>
+</div>
+
+<div class="title has-text-centered" *ngIf="errorActor">Acted</div>
+<div class="placeholder" *ngIf="errorActor">
+  <div class="chart">
+    <ngx-charts-bar-vertical
+      [scheme]="colorScheme"
+      [results]="chartItemsActor"
+      [gradient]=true
+      [xAxis]=true
+      [yAxis]=true
+      [showXAxisLabel]=true
+      [showYAxisLabel]=true
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [showGridLines]=true>
+    </ngx-charts-bar-vertical>
+  </div>
+</div>
+
+<div class="title has-text-centered" *ngIf="errorDirector">Directed</div>
+<div class="placeholder" *ngIf="errorDirector">
+  <div class="chart">
+    <ngx-charts-bar-vertical
+      [scheme]="colorScheme"
+      [results]="chartItemsDirector"
+      [gradient]=true
+      [xAxis]=true
+      [yAxis]=true
+      [showXAxisLabel]=true
+      [showYAxisLabel]=true
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [showGridLines]=true>
+    </ngx-charts-bar-vertical>
+  </div>
+</div>

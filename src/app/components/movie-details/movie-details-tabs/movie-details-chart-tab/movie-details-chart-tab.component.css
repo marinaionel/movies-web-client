@@ -1,0 +1,10 @@
+.placeholder{
+  display: flex;
+  justify-content: center;
+  height: 30rem;
+}
+
+.chart{
+  height: 100%;
+  width: 75%;
+}

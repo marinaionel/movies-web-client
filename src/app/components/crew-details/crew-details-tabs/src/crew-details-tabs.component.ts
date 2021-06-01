@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { MovieDetailsTab } from '../../../movie-details/dto/MovieDetailsTab';
 import { Constants } from '../../../movie-details/dto/Constants';
-import { TabsProviderService } from '../../../movie-details/services/tabs-provider.service';
+import { TabsProviderService } from '../../../../services/tabs-provider.service';
 import { CrewMember } from '../../../../dto/CrewMember';
 
 @Component({

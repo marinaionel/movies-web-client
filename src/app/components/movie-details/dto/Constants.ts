@@ -3,7 +3,7 @@ export abstract class Constants{
   public static MOVIE_PLOT = 'Plot';
   public static MOVIE_DETAILS = 'Details';
   public static MOVIE_CREW = 'Crew';
-  public static MOVIE_STATS = 'Stats';
+  public static MOVIE_STATS = 'Statistics';
   public static MOVIE_REVIEWS = 'Reviews';
   public static MOVIE_URL_PARAMETER = 'idString';
   public static MOVIE_DYNAMIC_COMP = 'tabContent';
@@ -18,6 +18,7 @@ export abstract class Constants{
   public static CREW_DESCRIPTION = 'Description';
   public static CREW_DIRECTOR = 'Directed In';
   public static CREW_ACTOR = 'Acted In';
+  public static CREW_STATS = 'Statistics';
 
   public static YTB_IFRAME_BASE_URL = 'https://www.youtube.com/embed/';
 }

@@ -48,6 +48,9 @@ import { CrewDetailsTabsComponent } from './components/crew-details/crew-details
 import { CrewDirectorTabComponent } from './components/crew-details/crew-details-tabs/crew-director-tab/crew-director-tab.component';
 import { MatListModule } from '@angular/material/list';
 import { CrewActorTabComponent } from './components/crew-details/crew-details-tabs/crew-actor-tab/crew-actor-tab.component';
+import { MovieDetailsChartTabComponent } from './components/movie-details/movie-details-tabs/movie-details-chart-tab/movie-details-chart-tab.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { CrewStatsTabComponent } from './components/crew-details/crew-details-tabs/crew-stats-tab/crew-stats-tab.component';
 
 @NgModule({
   imports: [
@@ -71,7 +74,8 @@ import { CrewActorTabComponent } from './components/crew-details/crew-details-ta
     MatInputModule,
     MatIconModule,
     MatSelectModule,
-    MatListModule
+    MatListModule,
+    NgxChartsModule
   ],
   declarations: [
     AppComponent,
@@ -96,7 +100,9 @@ import { CrewActorTabComponent } from './components/crew-details/crew-details-ta
     CrewDetailsDescriptionTabComponent,
     CrewDetailsTabsComponent,
     CrewDirectorTabComponent,
-    CrewActorTabComponent
+    CrewActorTabComponent,
+    MovieDetailsChartTabComponent,
+    CrewStatsTabComponent
   ],
   entryComponents: [MovieDetailsPlotTabComponent],
   providers: [

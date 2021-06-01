@@ -9,7 +9,7 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import { MovieDetailsTab } from '../../dto/MovieDetailsTab';
-import { TabsProviderService } from '../../services/tabs-provider.service';
+import { TabsProviderService } from '../../../../services/tabs-provider.service';
 import { Movie } from '../../../../dto/Movie';
 import { Constants } from '../../dto/Constants';
 
