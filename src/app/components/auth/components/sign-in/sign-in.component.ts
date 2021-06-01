@@ -17,6 +17,8 @@ export class SignInComponent implements OnInit{
   public appIcon = Constants.APP_ICON;
   public email!: string;
   public password!: string;
+  public emailError = false;
+  public passwordError = false;
 
   public signUpPath = Constants.SIGN_UP_URL;
   public forgotPasswordPath = Constants.FORGOT_PASSWORD_URL;
@@ -44,4 +46,14 @@ export class SignInComponent implements OnInit{
     return this.validatePassword() && this.validateEmail();
   }
 
+  public onSubmit(): void{
+    if (this.loginValidator()){
+      this.passwordError = false;
+      this.emailError = false;
+      this.authService.SignIn(this.email, this.password);
+    }else{
+      this.emailError = !this.validateEmail();
+      this.passwordError = !this.validatePassword();
+    }
+  }
 }

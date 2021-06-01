@@ -57,6 +57,7 @@ export class AuthService implements OnDestroy{
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.SetUserData(result.user);
+        this.router.navigate(['sign-in']);
       })
       .catch((error) => {
         window.alert(error.message);
@@ -109,6 +110,7 @@ export class AuthService implements OnDestroy{
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
+        this.router.navigate(['sign-in']);
         window.alert('Password reset email sent, check your inbox.');
       })
       .catch((error) => {

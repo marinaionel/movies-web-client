@@ -17,6 +17,9 @@ export class SignUpComponent implements OnInit{
   public email!: string;
   public password1!: string;
   public password2!: string;
+  public emailError = false;
+  public passwordError = false;
+  public matchingError = false;
 
   public signInPath = Constants.SIGN_IN_URL;
 
@@ -43,6 +46,19 @@ export class SignUpComponent implements OnInit{
   }
 
   public loginValidator(): boolean {
-    return this.validatePasswords() && this.validateEmail();
+    return this.validatePasswords() && this.validateEmail() && this.validatePassword1();
+  }
+
+  public onSubmit(): void{
+    if (this.loginValidator()){
+      this.passwordError = false;
+      this.emailError = false;
+      this.matchingError = false;
+      this.authService.SignUp(this.email, this.password1);
+    }else{
+      this.emailError = !this.validateEmail();
+      this.passwordError = !this.validatePassword1();
+      this.matchingError = !this.validatePasswords();
+    }
   }
 }

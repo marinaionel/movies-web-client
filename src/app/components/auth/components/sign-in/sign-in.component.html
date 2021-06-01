@@ -27,14 +27,14 @@
             </div>
           </div>
 
-          <div *ngIf="!loginValidator()" class="invalid">
-            <div *ngIf="!validateEmail()">Email is incorrect.</div>
-            <div *ngIf="!validatePassword()">Password should be more than 5 characters. </div>
+          <div *ngIf="emailError || passwordError" class="invalid">
+            <div *ngIf="emailError">Email is incorrect.</div>
+            <div *ngIf="passwordError">Password should be more than 5 characters. </div>
           </div>
 
           <div class="login-opt">
             <div class="button-style">
-              <button class="button" (click)="authService.SignIn(email, password)" [disabled]="!loginValidator()">
+              <button class="button" (click)="onSubmit()">
                 Login
               </button>
             </div>

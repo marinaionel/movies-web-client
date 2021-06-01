@@ -36,15 +36,15 @@
             </div>
           </div>
 
-          <div *ngIf="!loginValidator()" class="invalid">
-            <div *ngIf="!validateEmail()">Email is incorrect.</div>
-            <div *ngIf="!validatePassword1()">Password should be more than 5 characters. </div>
-            <div *ngIf="!validatePasswords()">Passwords should match. </div>
+          <div *ngIf="emailError || matchingError || passwordError" class="invalid">
+            <div *ngIf="emailError">Email is incorrect.</div>
+            <div *ngIf="passwordError">Password should be more than 5 characters. </div>
+            <div *ngIf="matchingError">Passwords should match. </div>
           </div>
 
           <div class="login-opt">
             <div class="button-style">
-              <button class="button" [disabled]="!loginValidator()" (click)="authService.SignUp(email, password1)" routerLink="{{signInPath}}">
+              <button class="button" (click)="onSubmit()">
                 Sign Up
               </button>
             </div>

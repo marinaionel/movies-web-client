@@ -79,8 +79,10 @@ export class MovieDetailsReviewsTabComponent implements OnInit, AfterViewInit{
       this.ratingError = false;
       this.titleError = false;
     }
-    this.textError = !this.textReviewValidator();
-    this.ratingError = !this.ratingReviewValidator();
-    this.titleError = !this.titleReviewValidator();
+    else {
+      this.textError = !this.textReviewValidator();
+      this.ratingError = !this.ratingReviewValidator();
+      this.titleError = !this.titleReviewValidator();
+    }
   }
 }

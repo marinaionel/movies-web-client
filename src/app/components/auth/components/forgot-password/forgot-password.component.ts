@@ -13,6 +13,7 @@ export class ForgotPasswordComponent implements OnInit{
   public appIcon = Constants.APP_ICON;
   public userIcon = Constants.USER_ICON;
   public email!: string;
+  public emailError = false;
 
   public signInPath = Constants.SIGN_IN_URL;
 
@@ -24,5 +25,14 @@ export class ForgotPasswordComponent implements OnInit{
 
   public validateEmail(): boolean {
     return this.validation.validateEmail(this.email);
+  }
+
+  public onSubmit(): void{
+    if (this.validateEmail()){
+      this.emailError = false;
+      this.authService.ForgotPassword(this.email);
+    }else{
+      this.emailError = !this.validateEmail();
+    }
   }
 }
