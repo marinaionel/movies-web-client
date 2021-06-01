@@ -9,7 +9,7 @@ export interface Movie{
   title: string;
   id: string;
   idString: string;
-  year: string;
+  year: number;
   posterUrl: string;
   genres: Genre[];
   trailerYoutubeVideoId: string;

@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DetailsGenericPanelComponent implements OnInit {
 
-  @Input() details!: string | null;
+  @Input() details!: any | null;
   @Input() panelName!: string;
   @Input() display!: boolean;
 

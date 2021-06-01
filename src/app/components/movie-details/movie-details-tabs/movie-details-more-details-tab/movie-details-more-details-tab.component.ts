@@ -30,50 +30,29 @@ export class MovieDetailsMoreDetailsTabComponent implements OnInit {
   }
 
   public showBoxOffice(): boolean {
-    if (this.movie && this.movie.boxOffice && this.movie.boxOffice.length > 0) {
-      return true;
-    }
-    return false;
+    return !!(this.movie && this.movie.boxOffice && this.movie.boxOffice.length > 0);
   }
 
   public showCountries(): boolean {
-    if (this.movie && this.movie.countries && this.movie.countries.length > 0) {
-      return true;
-    }
-    return false;
+    return this.movie && this.movie.countries && this.movie.countries.length > 0;
   }
 
   public showRuntime(): boolean {
-    if (this.movie && this.movie.runtime && this.movie.runtime.length > 0) {
-      return true;
-    }
-    return false;
+    return !!(this.movie && this.movie.runtime && this.movie.runtime.length > 0);
   }
   public showReleaseDate(): boolean {
-    if (this.movie && this.movie.releaseDate && this.movie.releaseDate.length > 0) {
-      return true;
-    }
-    return false;
+    return !!(this.movie && this.movie.releaseDate && this.movie.releaseDate.length > 0);
   }
 
   public showYear(): boolean {
-    if (this.movie && this.movie.year && this.movie.year.length > 0) {
-      return true;
-    }
-    return false;
+    return !!(this.movie && this.movie.year);
   }
 
   public showLanguages(): boolean {
-    if (this.movie && this.movie.languages && this.movie.languages.length > 0) {
-      return true;
-    }
-    return false;
+    return this.movie && this.movie.languages && this.movie.languages.length > 0;
   }
 
   public showGenres(): boolean {
-    if (this.movie && this.movie.genres && this.movie.genres.length > 0) {
-      return true;
-    }
-    return false;
+    return this.movie && this.movie.genres && this.movie.genres.length > 0;
   }
 }

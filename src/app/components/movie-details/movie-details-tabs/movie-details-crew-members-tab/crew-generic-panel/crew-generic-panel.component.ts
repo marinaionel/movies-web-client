@@ -42,7 +42,7 @@ export class CrewGenericPanelComponent implements OnInit{
     }
   }
 
-  public navigateToCrewMember(crewMember: CrewMember): void{
+  public navigateToCrewMember(crewMember: CrewMember): void {
     this.router.navigate([Routes.CREW_DETAILS_URL, crewMember.id]);
   }
 }
