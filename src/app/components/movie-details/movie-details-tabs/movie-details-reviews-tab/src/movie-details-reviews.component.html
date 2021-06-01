@@ -33,6 +33,9 @@
                                (panelToggled)="toggleReviewPanel()"></app-expandable-panel-header>
 
   <div *ngIf="panelEnabled" class="card-content">
+
+    <input class="input is-medium title-placeholder" [(ngModel)]="reviewTitle" type="text" placeholder="Add a title...">
+
     <div class="cont">
       <div class="stars">
         <app-movie-stars-rating [(ngModel)]="rating"></app-movie-stars-rating>
@@ -41,17 +44,19 @@
     </div>
 
     <article class="media-content">
+
       <div class="field">
         <textarea [(ngModel)]="reviewText" class="textarea" placeholder="Add a comment..."></textarea>
       </div>
 
-      <div *ngIf="!reviewValidator()" class="invalid">
-        <div *ngIf="!ratingReviewValidator()">Rating is required.</div>
-        <div *ngIf="!textReviewValidator()">Text should have more than 10 characters.</div>
+      <div *ngIf="textError || ratingError || titleError" class="invalid">
+        <div *ngIf="ratingError">Rating is required.</div>
+        <div *ngIf="textError">Text should have more than 10 characters.</div>
+        <div *ngIf="titleError">Title should have more than 3 characters.</div>
       </div>
 
       <div class="level-left level-item">
-        <button class="button buttonStyle" [disabled]="!reviewValidator()" (click)="onSubmit()">Submit</button>
+        <button class="button buttonStyle" (click)="onSubmit()">Submit</button>
       </div>
     </article>
   </div>

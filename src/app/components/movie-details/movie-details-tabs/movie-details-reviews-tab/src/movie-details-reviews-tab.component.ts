@@ -19,8 +19,12 @@ export class MovieDetailsReviewsTabComponent implements OnInit, AfterViewInit{
   public pageSize = 5;
   public rating: number;
   public reviewText = '';
+  public reviewTitle = '';
   public panelName = 'Leave a review';
   public panelEnabled = false;
+  public textError = false;
+  public ratingError = false;
+  public titleError = false;
 
   constructor(private changeDetectorReference: ChangeDetectorRef, private formBuilder: FormBuilder) {
     this.rating = 0;
@@ -57,8 +61,12 @@ export class MovieDetailsReviewsTabComponent implements OnInit, AfterViewInit{
     return this.rating !== 0;
   }
 
+  public titleReviewValidator(): boolean{
+    return this.reviewTitle.length > 3;
+  }
+
   public reviewValidator(): boolean{
-    return this.textReviewValidator() && this.ratingReviewValidator();
+    return this.textReviewValidator() && this.ratingReviewValidator() && this.titleReviewValidator();
   }
 
   public toggleReviewPanel(): void{
@@ -66,6 +74,13 @@ export class MovieDetailsReviewsTabComponent implements OnInit, AfterViewInit{
   }
 
   public onSubmit(): void {
-    console.warn(this.reviewText);
+    if (this.reviewValidator()){
+      this.textError = false;
+      this.ratingError = false;
+      this.titleError = false;
+    }
+    this.textError = !this.textReviewValidator();
+    this.ratingError = !this.ratingReviewValidator();
+    this.titleError = !this.titleReviewValidator();
   }
 }

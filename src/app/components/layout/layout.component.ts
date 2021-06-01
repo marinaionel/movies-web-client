@@ -43,6 +43,7 @@ export class LayoutComponent implements OnInit{
           this.charts = charts;
           this.overlayService.getSpinner$().next(false);
         } else {
+          this.overlayService.getSpinner$().next(false);
           this.showError();
         }
       }
