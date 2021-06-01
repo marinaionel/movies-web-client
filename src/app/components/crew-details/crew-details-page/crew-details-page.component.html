@@ -1,5 +1,8 @@
 <section class="container" *ngIf="getCrewMember$() | async as crewMember">
   <div class="title has-text-centered">{{crewMember.name}}</div>
+  <div class="image-placeholder">
+    <img src="{{crewMember.imageUrl}}">
+  </div>
   <div class="block-tabs">
     <app-crew-details-tabs
       [crewMember]="crewMember"
