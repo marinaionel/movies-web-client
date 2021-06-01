@@ -1,0 +1,81 @@
+.app-title-placeholder{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.125;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+.toolbar{
+  display: flex;
+  height: 4rem;
+  width: 100%;
+  background-color: #4a4a4a;
+}
+
+.search-icon{
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.button{
+  cursor: pointer;
+  padding: 1rem;
+  height: 100%;
+  margin-left: 1.5rem;
+  background-color: #4a4a4a;
+  color: white;
+}
+
+.button-group{
+  display: flex;
+  margin-left: auto;
+  height: 80%;
+}
+
+.searchForm{
+  width: 45%;
+  height: 100%;
+  margin-right: 0;
+}
+
+.inputForm{
+  width: 100%;
+}
+
+.input-class{
+  background-color: white;
+  height: 3rem;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep .mat-form-field-infix{
+  border-top: 0;
+}
+
+::ng-deep .mat-form-field-label{
+  margin-top: 0.7rem;
+  margin-left: 1rem;
+}
+
+
+.categories{
+  width: 10rem;
+  background-color: white;
+  margin-right: 2rem;
+}
+
+::ng-deep .mat-option .mat-focus-indicator .ng-star-inserted{
+  cursor: pointer;
+}

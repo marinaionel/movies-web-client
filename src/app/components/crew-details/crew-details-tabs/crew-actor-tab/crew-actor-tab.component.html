@@ -1,0 +1,9 @@
+<div class="noMovies" *ngIf="!showMovies()">
+  <strong>There are no movies...</strong>
+</div>
+
+<mat-selection-list [multiple]="false" *ngIf="showMovies()" [(ngModel)]="selectedMovie">
+  <mat-list-option class="has-text-centered" *ngFor="let movie of crewMember.actedInMovies" [value]="movie" (click)="navigateToMovie()">
+    {{movie.title}}
+  </mat-list-option>
+</mat-selection-list>

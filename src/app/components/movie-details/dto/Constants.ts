@@ -15,5 +15,9 @@ export abstract class Constants{
   public static ARROW_DOWN = './assets/arrow-down.png';
   public static ARROW_UP = './assets/arrow-up.png';
 
+  public static CREW_DESCRIPTION = 'Description';
+  public static CREW_DIRECTOR = 'Directed In';
+  public static CREW_ACTOR = 'Acted In';
+
   public static YTB_IFRAME_BASE_URL = 'https://www.youtube.com/embed/';
 }

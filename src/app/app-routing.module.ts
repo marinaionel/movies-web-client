@@ -7,6 +7,7 @@ import { MovieDetailsPageComponent } from './components/movie-details/movie-deta
 import { SignInComponent } from './components/auth/components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/auth/components/forgot-password/forgot-password.component';
+import { CrewDetailsPageComponent } from './components/crew-details/crew-details-page/crew-details-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -16,6 +17,7 @@ const routes: Routes = [
 
   { path: 'dashboard', component: LayoutComponent, canActivate: [AuthGuard]},
   { path: 'details/:idString', component: MovieDetailsPageComponent, canActivate: [AuthGuard]},
+  { path: 'crew-details/:idString', component: CrewDetailsPageComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: '/dashboard'}
 ];
 

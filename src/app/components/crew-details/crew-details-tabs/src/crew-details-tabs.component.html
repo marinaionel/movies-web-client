@@ -1,0 +1,17 @@
+<div class="tabs">
+  <div class="selection">
+    <ul>
+      <li *ngFor="let tab of getTabs()"
+          class="tab" [class.active]="tab.active"
+          (click)="changeTab(tab.orderNumber)">
+        <div>
+          <img class="icon" [src]="tab.icon">
+        </div>
+        <div>
+          {{tab.title}}
+        </div>
+      </li>
+    </ul>
+  </div>
+  <ng-template #tabContent></ng-template>
+</div>

@@ -1,0 +1,11 @@
+<div class="year" *ngIf="showYear()">Year of birth: {{crewMember.birth}}</div>
+<div class="noDescription" *ngIf="!showYear()">
+  <strong>There is no year...</strong>
+</div>
+<p *ngIf="showDescription()">
+  {{crewMember.description}}
+</p>
+<div class="noDescription" *ngIf="!showDescription()">
+  <strong>There is no description...</strong>
+</div>
+

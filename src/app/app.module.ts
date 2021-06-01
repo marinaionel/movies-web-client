@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
@@ -37,6 +37,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { AuthInterceptor } from './services/AuthInterceptor';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { MatOptionModule } from '@angular/material/core';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { CrewDetailsPageComponent } from './components/crew-details/crew-details-page/crew-details-page.component';
+import { CrewDetailsDescriptionTabComponent } from './components/crew-details/crew-details-tabs/crew-details-description-tab/crew-details-description-tab.component';
+import { CrewDetailsTabsComponent } from './components/crew-details/crew-details-tabs/src/crew-details-tabs.component';
+import { CrewDirectorTabComponent } from './components/crew-details/crew-details-tabs/crew-director-tab/crew-director-tab.component';
+import { MatListModule } from '@angular/material/list';
+import { CrewActorTabComponent } from './components/crew-details/crew-details-tabs/crew-actor-tab/crew-actor-tab.component';
 
 @NgModule({
   imports: [
@@ -54,7 +65,13 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatOptionModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    MatListModule
   ],
   declarations: [
     AppComponent,
@@ -74,7 +91,12 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     CrewGenericPanelComponent,
     DetailsGenericPanelComponent,
     ExpandablePanelHeaderComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    CrewDetailsPageComponent,
+    CrewDetailsDescriptionTabComponent,
+    CrewDetailsTabsComponent,
+    CrewDirectorTabComponent,
+    CrewActorTabComponent
   ],
   entryComponents: [MovieDetailsPlotTabComponent],
   providers: [

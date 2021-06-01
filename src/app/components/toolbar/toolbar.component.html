@@ -1,3 +1,48 @@
-<mat-toolbar>
-  <span>My App</span>
+<mat-toolbar class="toolbar">
+  <div class="app-title-placeholder" (click)="router.navigate([this.chartsPath])">Movie Finder</div>
+
+  <div class="categories">
+    <mat-select class="select-class" [(ngModel)]="selectedCategory" placeholder="Category">
+      <mat-option class="searchedOptions" *ngFor="let option of categories" [value]="option" (click)="optionChanged()">
+        {{option}}
+      </mat-option>
+    </mat-select>
+  </div>
+
+  <div class="searchForm">
+    <form>
+      <mat-form-field class="inputForm" [floatLabel]="'never'">
+        <input
+          [(ngModel)]="searchQuery"
+          placeholder="{{myPlaceHolder}}"
+          class="input-class"
+          matInput
+          type="text"
+          aria-label="Number"
+          [formControl]="myControl"
+          [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="navigateToSearchedItem()">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="search-icon">
+    <mat-icon aria-hidden="false"><img src="{{searchIcon}}"></mat-icon>
+  </div>
+
+  <div class="button-group">
+    <button class="button">
+      Watchlist
+    </button>
+    <button class="button">
+      Favorite Actors
+    </button>
+    <button class="button" (click)="auth.SignOut()">
+      Logout
+    </button>
+  </div>
 </mat-toolbar>
+

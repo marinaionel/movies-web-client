@@ -25,7 +25,11 @@ export class AuthService implements OnDestroy{
 
   public setLoginStatus(value: boolean): void {
     this.loggedInStatus = value;
-    localStorage.setItem('loggedIn', 'true');
+    if (value){
+      localStorage.setItem('loggedIn', 'true');
+    }else{
+      localStorage.setItem('loggedIn', 'false');
+    }
   }
 
   public get loginStatus(): boolean {
