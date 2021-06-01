@@ -14,6 +14,12 @@ export abstract class Routes{
   // crew
   public static GET_CREW_MEMBER_BY_ID = 'https://moviesss.azurewebsites.net/api/Crew/';
 
+  // review
+  public static POST_REVIEW = 'https://moviesss.azurewebsites.net/api/Review';
+
+  // account
+  public static GET_ACCOUNT = 'https://moviesss.azurewebsites.net/api/Account';
+
 
   // navigation
   public static BASE_DETAILS_URL = '/details';

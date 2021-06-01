@@ -90,10 +90,9 @@ export class AuthService implements OnDestroy{
       `users/${ user.uid }`
     );
     const userData: User = {
-      accountId: user.uid,
+      id: user.uid,
       email: user.email,
-      displayName: user.displayName,
-      emailVerified: user.emailVerified
+      name: user.displayName
     };
     return userRef.set(userData, {
       merge: true,

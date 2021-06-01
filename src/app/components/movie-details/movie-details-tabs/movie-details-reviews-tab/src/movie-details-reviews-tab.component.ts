@@ -1,8 +1,10 @@
-import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit, ViewChild, EventEmitter } from '@angular/core';
 import { Movie } from '../../../../../dto/Movie';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { FormBuilder } from '@angular/forms';
 import { Constants } from '../../../dto/Constants';
+import { ReviewManagerService } from '../../../../../services/review-manager.service';
+import { AccountProviderService } from '../../../../../services/account-provider.service';
+import { MovieReview } from '../../../../../dto/MovieReview';
 
 @Component({
   selector: 'app-movie-details-comments',
@@ -25,8 +27,10 @@ export class MovieDetailsReviewsTabComponent implements OnInit, AfterViewInit{
   public textError = false;
   public ratingError = false;
   public titleError = false;
+  public newRatingEvent = new EventEmitter<boolean>();
 
-  constructor(private changeDetectorReference: ChangeDetectorRef, private formBuilder: FormBuilder) {
+  constructor(private changeDetectorReference: ChangeDetectorRef,
+              private reviewManager: ReviewManagerService, private accountProvider: AccountProviderService) {
     this.rating = 0;
   }
 
@@ -78,6 +82,15 @@ export class MovieDetailsReviewsTabComponent implements OnInit, AfterViewInit{
       this.textError = false;
       this.ratingError = false;
       this.titleError = false;
+      this.accountProvider.getUser$().subscribe((user) => {
+        const review: MovieReview = {movieId: this.movie.idString, rating: this.rating,
+          text: this.reviewText, title: this.reviewTitle, account: {name: user.name}};
+        this.movie.reviews.push(review);
+        this.reviewManager.postReview(review);
+        this.reviewTitle = '';
+        this.reviewText = '';
+        this.newRatingEvent.emit(true);
+      });
     }
     else {
       this.textError = !this.textReviewValidator();

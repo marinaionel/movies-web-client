@@ -1,6 +1,5 @@
 export interface User{
-  accountId: string;
-  displayName: string | null;
+  id: string;
+  name: string | null;
   email: string | null;
-  emailVerified: boolean;
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, forwardRef, Input, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, EventEmitter, forwardRef, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -11,17 +11,31 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
     multi: true
   }]
 })
-export class MovieStarsRatingComponent{
+export class MovieStarsRatingComponent implements OnInit{
 
   public onChange!: Event;
   public value = 0;
   public stars = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 
   @Input() id = '';
+  @Input() event!: EventEmitter<boolean>;
   @ViewChildren('ngxCheckbox') ngxCheckbox: QueryList<ElementRef> | undefined;
 
   constructor() {
   }
+
+  ngOnInit(): void {
+        this.event.subscribe(next => {
+          if (next){
+            this.rate(0);
+            if (this.ngxCheckbox) {
+              this.ngxCheckbox.forEach((checkbox: ElementRef) => {
+                checkbox.nativeElement.checked = false;
+              });
+            }
+          }
+        });
+    }
 
   public rate(rate: number): void {
     this.propagateChange(rate);

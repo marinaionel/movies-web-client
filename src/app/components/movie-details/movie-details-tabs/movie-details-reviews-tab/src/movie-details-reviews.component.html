@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <p>
+    <p class="rating-container">
       {{review.text}}
     </p>
   </div>
@@ -38,7 +38,7 @@
 
     <div class="cont">
       <div class="stars">
-        <app-movie-stars-rating [(ngModel)]="rating"></app-movie-stars-rating>
+        <app-movie-stars-rating [(ngModel)]="rating" [event]="newRatingEvent"></app-movie-stars-rating>
       </div>
       <div class="rating-text">Rating: {{ rating }}</div>
     </div>
