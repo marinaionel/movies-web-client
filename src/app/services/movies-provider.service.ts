@@ -14,15 +14,6 @@ export class MoviesProviderService{
   constructor(private client: HttpClient, private auth: AuthService) {
   }
 
-  /*public movies$(): Observable<Movie[]> {
-   return this.client.get<Movie[]>(this.getUrl()).pipe(
-   catchError(error => {
-   console.log(error);
-   return of([]);
-   })
-   );
-   }*/
-
   public getMovie$(idString: string | null): Observable<Movie | null> {
     return this.client.get<Movie>(Routes.GET_MOVIE_BY_ID + idString)
       .pipe(catchError((error: HttpResponse<Movie>) => {

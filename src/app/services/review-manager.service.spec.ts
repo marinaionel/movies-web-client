@@ -9,8 +9,4 @@ describe('ReviewManagerService', () => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(ReviewManagerService);
   });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
 });
