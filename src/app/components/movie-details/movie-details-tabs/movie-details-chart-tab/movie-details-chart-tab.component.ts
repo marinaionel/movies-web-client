@@ -14,6 +14,7 @@ export class MovieDetailsChartTabComponent implements OnInit{
 
   public xAxisLabel = 'Stars';
   public yAxisLabel = 'No of reviews';
+  public reviewError = false;
 
   colorScheme = {
     domain: ['#F3A807', '#F3A807', '#F3A807']
@@ -23,11 +24,14 @@ export class MovieDetailsChartTabComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    if (this.movie && this.movie.reviews && this.movie.reviews.length > 0){
-      for (let i = 1; i <= 10; i++){
+    if (this.movie && this.movie.reviews && this.movie.reviews.length > 0) {
+      for (let i = 1; i <= 10; i++) {
         const sum = this.movie.reviews.filter((review) => review.rating === i).length;
-        this.chartItems.push({name: i + ' stars', value: sum});
+        this.chartItems.push({ name: i + ' stars', value: sum });
       }
+    }
+    else{
+      this.reviewError = true;
     }
   }
 }

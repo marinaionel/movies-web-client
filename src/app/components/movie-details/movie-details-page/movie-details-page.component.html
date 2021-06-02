@@ -1,6 +1,6 @@
 <section class="container" *ngIf="getMovie$() | async as movie">
   <div class="title has-text-centered">{{movie.title}}</div>
-  <div class="box has-background-black has-text-white rating-container">
+  <div class="box has-background-black has-text-white rating-container" *ngIf="ratingError">
     <div class="star">
       <div>Average Rating: {{movie.totalRatings.averageRating}}/10</div>
       <div>

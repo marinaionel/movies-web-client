@@ -17,6 +17,7 @@ export class MovieDetailsPageComponent implements OnInit{
 
   private movie$!: Observable<Movie | null>;
   private secureMovieURL!: SafeResourceUrl;
+  public ratingError = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +37,9 @@ export class MovieDetailsPageComponent implements OnInit{
     this.movie$.subscribe((movie: Movie | null) => {
       if (movie) {
         this.secureMovieURL = this.secureYoutubeTrailerURL(movie?.trailerYoutubeVideoId);
+        if (movie.totalRatings && movie.totalRatings.averageRating && movie.totalRatings.votes) {
+          this.ratingError = true;
+        }
       }
     });
   }

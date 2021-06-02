@@ -1,4 +1,7 @@
-<div class="placeholder">
+<div class="noReviews" *ngIf="reviewError">
+  <strong>There are no reviews...</strong>
+</div>
+<div class="placeholder" *ngIf="!reviewError">
   <div class="chart">
     <ngx-charts-bar-vertical
       [scheme]="colorScheme"
